@@ -1,6 +1,6 @@
-import { Users } from "./users";
-import { Courses } from "./courses";
-import { Students } from "./students";
+import { Users } from "./users.js";
+import { Courses } from "./courses.js";
+import { Students } from "./students.js";
 
 let users = new Users()
 let courses = new Courses()

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Methods</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>General Routing</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Path</th>
+                <th>HTTP Methods</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>GET</td>
+                <td>Retrieve data from index.html</td>
+            </tr>
+        </thead>
+    </table>
+
+    <h1>HTTP Methods for Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Path</th>
+                <th>HTTP Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/</td>
+                <td>GET</td>
+                <td>Retrieves list of users</td>
+            </tr>
+            <tr>
+                <td>/:id</td>
+                <td>GET</td>
+                <td>Retrieves a specific user</td>
+            </tr>
+            <tr>
+                <td>/register</td>
+                <td>POST</td>
+                <td>Creates a new user</td>
+            </tr>
+            <tr>
+                <td>/updateUser/:id</td>
+                <td>PATCH</td>
+                <td>Updates details of a specific user</td>
+            </tr>
+            <tr>
+                <td>/deleteUser/:id</td>
+                <td>DELETE</td>
+                <td>Deletes a specific user</td>
+            </tr>
+            <tr>
+                <td>/login</td>
+                <td>POST</td>
+                <td>Logs user in</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>HTTP Methods for Courses</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Path</th>
+                <th>HTTP Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/</td>
+                <td>GET</td>
+                <td>Retrieves list of Courses</td>
+            </tr>
+            <tr>
+                <td>/:id</td>
+                <td>GET</td>
+                <td>Retrieves a specific course</td>
+            </tr>
+            <tr>
+                <td>/addCourse</td>
+                <td>POST</td>
+                <td>Adds a new course</td>
+            </tr>
+            <tr>
+                <td>/updateCourse/:id</td>
+                <td>PATCH</td>
+                <td>Updates details of a specific course</td>
+            </tr>
+            <tr>
+                <td>/deleteCourse/:id</td>
+                <td>DELETE</td>
+                <td>Deletes a specific course</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>HTTP Methods for Students</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Path</th>
+                <th>HTTP Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>/</td>
+                <td>GET</td>
+                <td>Retrieves list of Students</td>
+            </tr>
+            <tr>
+                <td>/:id</td>
+                <td>GET</td>
+                <td>Retrieves a specific student</td>
+            </tr>
+            <tr>
+                <td>/book</td>
+                <td>POST</td>
+                <td>Adds a new student</td>
+            </tr>
+            <tr>
+                <td>/cancel/:id</td>
+                <td>DELETE</td>
+                <td>Deletes a specific student</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

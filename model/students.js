@@ -28,7 +28,7 @@ class Students {
       });
     });
   }
-  apply(req, res){
+ async book(req, res){
     const qry = `
         INSERT INTO Students
         SET ?;
@@ -37,7 +37,7 @@ class Students {
         if(err) throw err
         res.json({
             status: res.statusCode,
-            msg: 'Applied successfully'
+            msg: 'Booked!'
         })
     })
 }
@@ -50,12 +50,12 @@ class Students {
       if (err) {
         res.json({
           status: res.statusCode,
-          msg: "Could not cancel application. Please try again later.",
+          msg: "Could not cancel booking. Please try again later.",
         });
       } else {
         res.json({
           status: res.statusCode,
-          msg: "Application successfully canceled",
+          msg: "Booking successfully canceled",
         });
       }
     });
