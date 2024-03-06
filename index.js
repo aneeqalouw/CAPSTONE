@@ -7,7 +7,7 @@ import cors from 'cors';
 import path from 'path';
 
 const app = express()
-const PORT = +process.env.PORT || 3500
+const PORT = +process.env.PORT || 1200
 
 app.use((req, res, next)=>{
     res.header("Access-Control-Allow-Origin", "*"); 
