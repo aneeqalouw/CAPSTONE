@@ -28,7 +28,7 @@ class Students {
       });
     });
   }
- async book(req, res){
+ book(req, res){
     const qry = `
         INSERT INTO Students
         SET ?;
@@ -41,7 +41,7 @@ class Students {
         })
     })
 }
-  async cancel(req, res) {
+  cancel(req, res) {
     const qry = `
                 DELETE FROM Students
                 WHERE studID = ${req.params.id}
