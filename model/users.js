@@ -116,6 +116,7 @@ class Users{
                     msg: 'You provided the wrong email address'
                 })
             }else{
+                console.log(result);
                 const validPassword = await compare(pwd, result[0].pwd)
                 if(validPassword){
                     const token = createToken({
