@@ -110,12 +110,11 @@ class Users{
         `
         db.query(qry, async(err, result)=>{
             if(err) throw err
-            if(!result){
-                console.log(result);
-                // res.json({
-                //     status: res.statusCode,
-                //     msg: 'You provided the wrong email address'
-                // })
+            if(!result?.length){
+                res.json({
+                    status: res.statusCode,
+                    msg: 'You provided the wrong email address'
+                })
             }else{
                 const validPassword = await compare(pwd, result[0].pwd)
                 if(validPassword){
