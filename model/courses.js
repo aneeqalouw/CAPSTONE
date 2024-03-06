@@ -18,7 +18,7 @@ class Courses{
         const qry= `
             SELECT courseID, courseName, courseDuration, courseDesc, coursePrice
             FROM Courses
-            WHERE courseID = '${req.params.id}' 
+            WHERE courseID = '${req.params.id}';
         `
         db.query(qry, (err, result)=>{
             if(err) throw err
@@ -45,7 +45,7 @@ class Courses{
         const qry = `
             UPDATE Courses
             SET ?
-            WHERE courseID = '${req.params.id}'
+            WHERE courseID = '${req.params.id}';
         `
         db.query(qry, [req.body], (err)=>{
             if (err) throw err
@@ -58,7 +58,7 @@ class Courses{
     deleteCourse(req, res){
         const qry = `
             DELETE FROM Courses
-            WHERE courseID = '${req.params.id}'
+            WHERE courseID = '${req.params.id}';
         `
         db.query(qry, (err)=>{
             if (err) throw err

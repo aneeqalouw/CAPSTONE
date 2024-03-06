@@ -20,7 +20,7 @@ class Users{
         const qry = `
             SELECT userID, firstName, lastName, dob, email
             FROM Users
-            WHERE userID =${req.params.id};
+            WHERE userID ='${req.params.id}';
         `
         db.query(qry, (err, result)=>{
             if(err) throw err
@@ -66,7 +66,7 @@ class Users{
         const qry = `
             UPDATE Users 
             SET ?
-            WHERE userID = ${req.params.id};
+            WHERE userID = '${req.params.id}';
         `
         db.query(qry, [data], (err)=>{
             if(err){
@@ -85,7 +85,7 @@ class Users{
     async deleteUser(req, res){
         const qry = `
             DELETE FROM Users
-            WHERE userID = ${req.params.id}
+            WHERE userID = '${req.params.id}';
         `
         db.query(qry, (err)=>{
             if (err){

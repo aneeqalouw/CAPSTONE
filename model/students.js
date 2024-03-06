@@ -44,7 +44,7 @@ class Students {
   cancel(req, res) {
     const qry = `
                 DELETE FROM Students
-                WHERE studID = ${req.params.id}
+                WHERE studID = ${req.params.id};
             `;
     db.query(qry, (err) => {
       if (err) {
