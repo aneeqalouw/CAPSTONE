@@ -3,7 +3,7 @@ import { connection as db } from "../config/index.js";
 class Students {
   fetchStudents(req, res) {
     const qry = `
-                SELECT studID, courseID, userID
+                SELECT studID, courseID, courseName, startDate, userID
                 FROM Students;
             `;
     db.query(qry, (err, results) => {
@@ -16,7 +16,7 @@ class Students {
   }
   fetchStudent(req, res) {
     const qry = `
-                SELECT studID, courseID, userID
+                SELECT studID, courseID, courseName, startDate, userID
                 FROM Students
                 WHERE studID =${req.params.id};
             `;
