@@ -5,7 +5,7 @@ import { useCookies } from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
 import AuthenticateUser from '@/service/AuthenticateUser'
-const dbURL = 'https://capstone-1-o3t8.onrender.com'
+const dbURL = 'https://capstone-1-o3t8.onrender.com/'
 
 
 export default createStore({

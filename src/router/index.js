@@ -10,37 +10,42 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: '/courses',
     name: 'courses',
-    component: () => import(/ '../views/CoursesView.vue')
+    component: () => import('../views/CoursesView.vue')
   },
   {
     path: '/course/:id',
     name: 'about',
-    component: () => import(/ '../views/CourseView.vue')
+    component: () => import('../views/CourseView.vue')
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import(/ '../views/RegisterView.vue')
+    component: () => import('../views/RegisterView.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import(/ '../views/LoginView.vue')
+    component: () => import('../views/LoginView.vue')
+  },
+  {
+    path: '/book',
+    name: 'book',
+    component: () => import('../views/BookView.vue')
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import(/ '../views/ContactView.vue')
+    component: () => import('../views/ContactView.vue')
   },
   {
     path: '/admin',
-    name: 'about',
-    component: () => import(/ '../views/AdminView.vue')
+    name: 'admin',
+    component: () => import('../views/AdminView.vue')
   }
 ]
 
