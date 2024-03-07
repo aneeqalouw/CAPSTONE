@@ -3,7 +3,7 @@ import { connection as db } from "../config/index.js";
 class Students {
   fetchStudents(req, res) {
     const qry = `
-                SELECT studID, courseID, courseName, startDate, userID
+                SELECT studID, courseID, startDate, userID
                 FROM Students;
             `;
     db.query(qry, (err, results) => {
