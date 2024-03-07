@@ -1,20 +1,40 @@
-/* #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-  
-  nav {
-    padding: 30px;
-  }
-  
-  nav a {
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app{
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  display: grid;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+}
+nav a:hover{
+    color: #F1A778;
+}
+#allbuttons{
+    text-decoration: none;
+    color: white;
+}
+nav a.router-link-exact-active {
     font-weight: bold;
-    color: #2c3e50;
-  }
-  
-  nav a.router-link-exact-active {
-    color: #42b983;
-  } */
+    color: #9A2C0A;
+}
+
+#home{
+  background-color: #F1A778 ;
+}
+#heading{
+  color: #9A2C0A ;
+  font-weight: bold;
+}

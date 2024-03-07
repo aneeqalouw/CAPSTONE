@@ -1,5 +1,7 @@
 <template>
-    <div>
+  <br><br>
+  <br><br>
+    <div class="container">
         <h1>Register</h1>
     </div>
 </template>

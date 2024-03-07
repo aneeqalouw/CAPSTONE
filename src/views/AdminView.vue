@@ -1,219 +1,507 @@
 <template>
+  <br><br>
+  <br><br>
   <div class="container">
     <h2>Admin</h2>
     <br /><br />
-    <div class="row">
-      <h4>Courses</h4>
-      <br /><br />
-      <div class="row">
-        <!-- Button trigger modal -->
-        <button
-          type="button"
-          class="btn border-black"
-          data-bs-toggle="modal"
-          data-bs-target="#addCourse"
-        >
-          Add new course
-        </button>
 
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="addCourse"
-          tabindex="-1"
-          aria-labelledby="addCourse"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="addCourse">Add new course</h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <input
-                  type="text"
-                  placeholder="courseID"
-                  v-model="payload.courseID"
-                />
-                <input
-                  type="text"
-                  placeholder="courseName"
-                  v-model="payload.courseName"
-                />
-                <input
-                  type="text"
-                  placeholder="courseDuration"
-                  v-model="payload.courseDuration"
-                />
-                <input
-                  type="text"
-                  placeholder="courseDesc"
-                  v-model="payload.courseDesc"
-                />
-                <input
-                  type="text"
-                  placeholder="coursePrice"
-                  v-model="payload.coursePrice"
-                />
-              </div>
-              <div class="modal-footer">
-                <butt
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </butt>
-                <button
-                  type="submit"
-                  @click.prevent="addingCourse"
-                  class="btn btn-primary"
-                >
-                  Save changes
-                </button>
+    <!-- **courses -->
+    <div class="container ">
+      <div class="row">
+        <h4>Courses</h4>
+        <br /><br />
+        <div class="row">
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn border-black"
+            data-bs-toggle="modal"
+            data-bs-target="#addCourse"
+          >
+            Add new course
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="addCourse"
+            tabindex="-1"
+            aria-labelledby="addCourse"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="addCourse">
+                    Add new course
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="text"
+                    placeholder="courseID"
+                    v-model="coursePayload.courseID"
+                  />
+                  <input
+                    type="text"
+                    placeholder="courseName"
+                    v-model="coursePayload.courseName"
+                  />
+                  <input
+                    type="text"
+                    placeholder="courseDuration"
+                    v-model="coursePayload.courseDuration"
+                  />
+                  <input
+                    type="text"
+                    placeholder="courseDesc"
+                    v-model="coursePayload.courseDesc"
+                  />
+                  <input
+                    type="text"
+                    placeholder="coursePrice"
+                    v-model="coursePayload.coursePrice"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <butt
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </butt>
+                  <button
+                    type="submit"
+                    @click.prevent="addingCourse"
+                    class="btn btn-dark"
+                  >
+                    Save changes
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th>courseID</th>
-              <th>courseName</th>
-              <th>courseDuration</th>
-              <th>courseDesc</th>
-              <th>coursePrice</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody v-if="courses">
-            <tr v-for="course in courses" :key="course.courseID">
-              <td>{{ course.courseID }}</td>
-              <td>{{ course.courseName }}</td>
-              <td>{{ course.courseDuration }}</td>
-              <td>{{ course.courseDesc }}</td>
-              <td>R{{ course.coursePrice }}</td>
-              <td>
-                <!-- Button trigger modal -->
-                <button
-                  type="button"
-                  class="btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#updateCourse"
-                >
-                  Edit
-                </button>
+        <div class="row table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>courseID</th>
+                <th>courseName</th>
+                <th>courseDuration</th>
+                <th>courseDesc</th>
+                <th>coursePrice</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody v-if="courses">
+              <tr v-for="course in courses" :key="course.courseID">
+                <td>{{ course.courseID }}</td>
+                <td>{{ course.courseName }}</td>
+                <td>{{ course.courseDuration }}</td>
+                <td>{{ course.courseDesc }}</td>
+                <td>R{{ course.coursePrice }}</td>
+                <td>
+                  <!-- Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-dark mx-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateCourse"
+                  >
+                    Edit
+                  </button>
 
-                <!-- Modal -->
-                <div
-                  class="modal fade"
-                  id="updateCourse"
-                  tabindex="-1"
-                  aria-labelledby="updateCourse"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="updateCourse">
-                          Edit course
-                        </h1>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        <input
-                          type="text"
-                          placeholder="courseID"
-                          v-model="payload.courseID"
-                        />
-                        <input
-                          type="text"
-                          placeholder="courseName"
-                          v-model="payload.courseName"
-                        />
-                        <input
-                          type="text"
-                          placeholder="courseDuration"
-                          v-model="payload.courseDuration"
-                        />
-                        <input
-                          type="text"
-                          placeholder="courseDesc"
-                          v-model="payload.courseDesc"
-                        />
-                        <input
-                          type="text"
-                          placeholder="coursePrice"
-                          v-model="payload.coursePrice"
-                        />
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button type="submit" @click.prevent="updatingCourse(payload)" class="btn btn-primary">
-                          Save changes
-                        </button>
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="updateCourse"
+                    tabindex="-1"
+                    aria-labelledby="updateCourse"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="updateCourse">
+                            Edit course
+                          </h1>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <input
+                            type="text"
+                            placeholder="courseID"
+                            v-model="coursePayload.courseID"
+                          />
+                          <input
+                            type="text"
+                            placeholder="courseName"
+                            v-model="coursePayload.courseName"
+                          />
+                          <input
+                            type="text"
+                            placeholder="courseDuration"
+                            v-model="coursePayload.courseDuration"
+                          />
+                          <input
+                            type="text"
+                            placeholder="courseDesc"
+                            v-model="coursePayload.courseDesc"
+                          />
+                          <input
+                            type="text"
+                            placeholder="coursePrice"
+                            v-model="coursePayload.coursePrice"
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="submit"
+                            @click.prevent="updatingCourse(coursePayload)"
+                            class="btn btn-dark"
+                          >
+                            Save changes
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <button class="btn" @click="deletingCourse(course)">
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <div v-else>
-            <SpinnerComp></SpinnerComp>
-          </div>
-        </table>
+                  <button class="btn btn-danger" @click="deletingCourse(course)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <div v-else>
+              <SpinnerComp></SpinnerComp>
+            </div>
+          </table>
+        </div>
       </div>
-      <div class="row">
-        
+
+      <!-- **users -->
+      <br /><br />
+      <div class="container">
+        <div class="row">
+          <h4>Users</h4>
+        </div>
+        <br /><br />
+        <div class="row">
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn border-black"
+            data-bs-toggle="modal"
+            data-bs-target="#addUser"
+          >
+            Add new user
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="addUser"
+            tabindex="-1"
+            aria-labelledby="addUser"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="addUser">Add new user</h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="text"
+                    placeholder="userID"
+                    v-model="userPayload.userID"
+                  />
+                  <input
+                    type="text"
+                    placeholder="firstName"
+                    v-model="userPayload.firstName"
+                  />
+                  <input
+                    type="text"
+                    placeholder="lastName"
+                    v-model="userPayload.lastName"
+                  />
+                  <input
+                    type="text"
+                    placeholder="DOB"
+                    v-model="userPayload.dob"
+                  />
+                  <input
+                    type="text"
+                    placeholder="email"
+                    v-model="userPayload.email"
+                  />
+                  <input
+                    type="password"
+                    placeholder="password"
+                    v-model="userPayload.pwd"
+                  />
+                  <input
+                    type="text"
+                    placeholder="role"
+                    v-model="userPayload.userRole"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="submit"
+                    @click.prevent="registerUser"
+                    class="btn btn-dark"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>userID</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>DOB</th>
+                <th>email</th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody v-if="users">
+              <tr v-for="user in users" :key="user.userID">
+                <td>{{ user.userID }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.dob }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.userRole }}</td>
+                <td >
+                  <!-- Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn btn-dark mx-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateUser"
+                  >
+                    Edit
+                  </button>
+
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="updateUser"
+                    tabindex="-1"
+                    aria-labelledby="updateUser"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="updateUser">
+                            Edit user
+                          </h1>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <input
+                            type="text"
+                            placeholder="userID"
+                            v-model="userPayload.userID"
+                          />
+                          <input
+                            type="text"
+                            placeholder="firstName"
+                            v-model="userPayload.firstName"
+                          />
+                          <input
+                            type="text"
+                            placeholder="lastName"
+                            v-model="userPayload.lastName"
+                          />
+                          <input
+                            type="text"
+                            placeholder="DOB"
+                            v-model="userPayload.dob"
+                          />
+                          <input
+                            type="text"
+                            placeholder="email"
+                            v-model="userPayload.email"
+                          />
+                          <input
+                            type="password"
+                            placeholder="password"
+                            v-model="userPayload.pwd"
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="submit"
+                            @click.prevent="updatingUser(userPayload)"
+                            class="btn btn-dark"
+                          >
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button @click="deleteingUser(user.userID)" class="btn btn-danger">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br /><br />
+
+      <!-- **students -->
+      <div class="container">
+        <div class="row">
+          <h4>Students</h4>
+        </div>
+        <div class="row">
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn border-black"
+            data-bs-toggle="modal"
+            data-bs-target="#addStudent"
+          >
+            Add new student
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="addStudent"
+            tabindex="-1"
+            aria-labelledby="addStudent"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="addStudent">
+                    Add new student
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" placeholder="courseName" v-model="studentPayload.courseID">
+                  <input type="text" placeholder="startDate" v-model="studentPayload.startDate">
+                  <input type="text" placeholder="userID" v-model="studentPayload.userID">
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" @click.prevent="addStudent" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import AddUser from "@/components/AddUser.vue";
-// import UpdateUser from "@/components/UpdateUser.vue";
-// import UpdateCourse from "@/components/UpdateCourse.vue";
-// import AddStudent from '@/components/AddStudent'
 import SpinnerComp from "@/components/SpinnerComp.vue";
 
 export default {
   components: {
     SpinnerComp,
   },
-  props: ["addCourseModal", "updateCourseModal"],
   data() {
     return {
-      payload: {
+      coursePayload: {
         courseID: "",
         courseName: "",
         courseDuration: "",
         courseDesc: "",
         coursePrice: null,
       },
+      userPayload: {
+        userID: "",
+        firstName: "",
+        lastName: "",
+        dob: "",
+        email: "",
+        pwd: "",
+        userRole: "",
+      },
+      studentPayload: {
+        studID: null,
+        startDate: "",
+        courseID: "",
+        userID: ""
+      }
     };
   },
   computed: {
@@ -223,34 +511,29 @@ export default {
     courses() {
       return this.$store.state.courses;
     },
+    students(){
+      return this.$store.state.students
+    }
   },
   methods: {
+
     //user methods
-    // deleteUser(userID) {
-    //   this.$store.dispatch("deleteUser", { id: userID });
-    // },
-    // updateUser(user) {
-    //   let updatingUser = {
-    //     userID: user.userID,
-    //     firstName: user.firstName,
-    //     lastName: user.lastName,
-    //     dob: user.dob,
-    //     email: user.email,
-    //     pwd: user.pwd,
-    //     userRole: user.userRole,
-    //   };
-    //   this.$store.dispatch("updateUser", {
-    //     id: user.userID,
-    //     data: updatingUser,
-    //   });
-    // },
+    registerUser() {
+      this.$store.dispatch("register", this.userPayload);
+    },
+    deleteingUser(userID) {
+      this.$store.dispatch("deleteUser", { id: userID });
+    },
+    updatingUser() {
+      this.$store.dispatch("updateUser", this.userPayload);
+    },
 
     //course methods
     updatingCourse() {
-      this.$store.dispatch("updateCourse", this.payload);
+      this.$store.dispatch("updateCourse", this.coursePayload);
     },
     addingCourse() {
-      this.$store.dispatch("addCourse", this.payload);
+      this.$store.dispatch("addCourse", this.coursePayload);
     },
     deletingCourse(payload) {
       this.$store.dispatch("deleteCourse", payload);
@@ -263,11 +546,13 @@ export default {
         courseDesc: course.courseDesc,
         coursePrice: course.coursePrice,
       };
-      this.$store.dispatch("updateCourse", {
-        id: course.courseID,
-        data: updatingCourse,
-      });
+      this.$store.dispatch("updateCourse", updatingCourse);
     },
+
+    // student methods
+    addStudent(){
+      this.$store.dispatch("book", this.studentPayload)
+    }
   },
   mounted() {
     this.$store.dispatch("fetchUsers");

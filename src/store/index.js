@@ -45,7 +45,6 @@ export default createStore({
     async register(context, payload) {
       try{
         let {msg} = (await axios.post(`${dbURL}users/register`, payload)).data
-        if(msg) {
           context.dispatch('fetchUsers')
           sweet({
             title: 'Registration',
@@ -53,13 +52,10 @@ export default createStore({
             icon: "success",
             timer: 2000
           }) 
-          //  
-          router.push({name: 'login'})
-        }
       }catch(e) {
         sweet({
           title: 'Error',
-          text: 'There was an error logging in',
+          text: 'There was an trying to',
           icon: "error",
           timer: 2000
         }) 
@@ -241,9 +237,8 @@ export default createStore({
       }
     },
     async updateCourse(context, payload) {
-      try{
+      try{   
         let {msg} = (await axios.patch(`${dbURL}courses/updateCourse/${payload.courseID}`, payload)).data  
-        console.log(payload);    
           context.dispatch('fetchCourses')
           sweet({
             title: 'Update course',

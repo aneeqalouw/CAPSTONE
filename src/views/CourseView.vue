@@ -1,5 +1,7 @@
 <template>
-    <div>
+  <br><br>
+  <br><br>
+    <div class="container">
         <h1>Course</h1>
     </div>
 </template>

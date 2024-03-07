@@ -1,11 +1,12 @@
 <template>
   <NavBar/>
-  <main class="container-fluid">
+  <main class>
     <router-view/>
     <div style="display: none;">
       <SpinnerComp></SpinnerComp>
     </div>
   </main>
+  <FooterComp/>
 </template>
 
 <script>
@@ -23,9 +24,7 @@ import SpinnerComp from './components/SpinnerComp.vue';
   }
 </script>
 
-<style scoped>
-body{
-  color: black;
-}
+<style src="../src/assets/css/style.css">
+
 
 </style>
