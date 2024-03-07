@@ -17,7 +17,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav gap-2">
             <li class="nav-item">
               <router-link to="/">Home</router-link>
             </li>
@@ -25,7 +25,7 @@
               <router-link to="/about">About</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/register">Register/Login</router-link>
+              <router-link to="/login">Register/Login</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/book">Book</router-link>

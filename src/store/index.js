@@ -242,7 +242,8 @@ export default createStore({
     },
     async updateCourse(context, payload) {
       try{
-        let {msg} = (await axios.patch(`${dbURL}courses/updateCourse/${payload.courseID}`, payload)).data      
+        let {msg} = (await axios.patch(`${dbURL}courses/updateCourse/${payload.courseID}`, payload)).data  
+        console.log(payload);    
           context.dispatch('fetchCourses')
           sweet({
             title: 'Update course',
