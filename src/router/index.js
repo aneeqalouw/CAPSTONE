@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useCookies } from 'vue3-cookies'
+const {cookies} = useCookies()
 
 const routes = [
   {
@@ -35,17 +37,42 @@ const routes = [
   {
     path: '/book',
     name: 'book',
-    component: () => import('../views/BookView.vue')
+    component: () => import('../views/BookView.vue'),
+    beforeEnter(){
+      if(!cookies.get('LegitUser')){
+        router.push({name : 'login'})
+      }
+    }
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import('../views/ContactView.vue')
+    component: () => import('../views/ContactView.vue'),
+    
   },
   {
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')
+    // beforeEnter(){
+    //   cookies.get('LegitUser')
+    //   if(user.userRole == 'admin'){
+    //     router.push({name: 'admin'})
+    //   }else{
+    //     router.push({name: 'login'})
+    //   }
+    // }
+    
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: ()=> import('../views/LoginView.vue'),
+    beforeEnter(){
+      router.push({name: 'login'})
+      cookies.remove('LegitUser')
+      window.location.reload
+    }
   }
 ]
 

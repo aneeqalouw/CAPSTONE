@@ -175,7 +175,6 @@ export default createStore({
 
     },
 
-
     //courses
     async fetchCourses(context) {
       try{
