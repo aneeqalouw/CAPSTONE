@@ -15,26 +15,5 @@
   text-align: center;
   display: grid;
 }
-nav a{
-    text-decoration: none;
-    color:black;
-}
-nav a:hover{
-    color: #F1A778;
-}
-#allbuttons{
-    text-decoration: none;
-    color: white;
-}
-nav a.router-link-exact-active {
-    font-weight: bold;
-    color: #9A2C0A;
-}
 
-#home{
-  background-color: #F1A778 ;
-}
-#heading{
-  color: #9A2C0A ;
-  font-weight: bold;
-}
+

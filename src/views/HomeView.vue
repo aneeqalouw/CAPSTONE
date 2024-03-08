@@ -50,6 +50,12 @@
       <br><br>
       Apply now! Limited spots available
     </p>
+    <br><br>
+      <router-link to="/courses">
+        <button class="btn fs-5" id="button">
+          View our courses
+        </button>
+      </router-link>
   </div>
   <br><br>
   <br><br>
@@ -59,4 +65,17 @@
 export default {};
 </script>
 
-<style src="../assets/css/style.css"></style>
+<style scoped>
+#heading{
+  color: #9A2C0A ;
+  font-weight: bold;
+}
+#home{
+  background-color: #F1A778 ;
+}
+#button{
+  text-decoration: none; 
+  color: white;
+   background-color: #9A2C0A;
+}
+</style>

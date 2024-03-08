@@ -107,8 +107,7 @@ export default createStore({
             text: msg,
             icon: "success",
             timer: 2000
-          }) 
-        
+          })  
       }catch(e) {
         sweet({
           title: 'Error',

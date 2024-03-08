@@ -2,7 +2,7 @@
   <br><br>
   <br><br>
   <div class="container">
-    <h2>Admin</h2>
+    <h1 class="display-3" id="heading">Admin</h1>
     <br /><br />
 
     <!-- **courses -->
@@ -403,6 +403,9 @@
                 </td>
               </tr>
             </tbody>
+            <div v-else>
+              <SpinnerComp></SpinnerComp>
+            </div>
           </table>
         </div>
       </div>
@@ -465,6 +468,33 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="row table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>studID</th>
+                <th>userID</th>
+                <th>courseID</th>
+                <th>startDate</th>
+              </tr>
+            </thead>
+            <tbody v-if="students">
+              <tr v-for="student in students" :key="student.studID">
+                <td>{{ student.studID }}</td>
+                <td>{{ student.userID }}</td>
+                <td>{{ student.courseID }}</td>
+                <td>{{ student.startDate }}</td>
+                <td>
+                  <button class="btn btn-danger">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+            <div v-else>
+              <SpinnerComp></SpinnerComp>
+            </div>
+          </table>
+
         </div>
       </div>
     </div>
@@ -562,4 +592,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  #heading{
+    color: #9a2c0a;
+    font-weight: bold;
+  }
+</style>

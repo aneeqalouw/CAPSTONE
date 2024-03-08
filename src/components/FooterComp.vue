@@ -137,6 +137,6 @@ a {
 #line2{
     background-color: black;
     height: 0.5px;
-    width: 80px;
+    width: 60px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-  <nav class="navbar bg-white shadow fixed-top">
+  <nav class="navbar shadow fixed-top">
   <div class="container-fluid">
     <router-link to="/">
       <img src="https://i.ibb.co/8szRnQW/abroadacademy-logo.png" alt="Logo" id="logo">
@@ -10,7 +10,7 @@
         <button class="btn rounded-5" id="loginbtn">Register/Login</button>
       </router-link>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="navToggle">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">  
@@ -51,6 +51,26 @@ export default {};
 </script>
 
 <style scoped>
+nav{
+  background-image: linear-gradient(#fee0ce, #fce7db,#fff4ef );
+}
+nav a{
+    text-decoration: none;
+    color:black;
+}
+nav a:hover{
+    color: #F1A778;
+}
+a{
+  text-decoration: none;
+}
+#navToggle{
+  border-color: #9A2C0A;
+}
+nav a.router-link-exact-active {
+    font-weight: bold;
+    color: #9A2C0A;
+}
 #loginbtn{
   border: #9A2C0A solid 0.5px;
   color: #9A2C0A;
@@ -58,5 +78,9 @@ export default {};
 #logo{
   height: 3rem;
   width: 8rem;
+}
+#loginbtn:hover{
+  background-color: #9A2C0A;
+  color: white;
 }
 </style>
