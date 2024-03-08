@@ -52,7 +52,7 @@ export default {};
 
 <style scoped>
 nav{
-  background-image: linear-gradient(#fee0ce, #fce7db,#fff4ef );
+  background-image: linear-gradient(#fbd6be, #fbe4d7,#fbefe8 );
 }
 nav a{
     text-decoration: none;

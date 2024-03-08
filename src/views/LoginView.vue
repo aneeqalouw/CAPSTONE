@@ -7,9 +7,9 @@
     <div class="container d-grid justify-content-center w-75 shadow" id="loginForm">
       <br /><br />
       <label class="me-auto">Email *</label> <br>
-      <input type="text" placeholder="Email" v-model="payload.email" class=" w-100"/> <br> <br>
+      <input type="text" placeholder="Email" v-model="payload.email" class=" w-100" required/> <br> <br>
       <label class="me-auto">Password *</label> <br>
-      <input type="password" placeholder="Password" v-model="payload.pwd" class=" w-100"> <br> <br>
+      <input type="password" placeholder="Password" v-model="payload.pwd" class=" w-100" required/> <br> <br>
       <button type="submit" @click="loggingIn" class="btn" id="button">Log in</button>
       <br><br>
       <p>

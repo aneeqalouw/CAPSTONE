@@ -10,16 +10,16 @@
       <p class="lead fs-5 fw-bold me-auto">Register and book a course today!</p>
       <p>You must be at least 18 and a South African citizen to register</p>
       <label class="me-auto">First Name *</label>
-      <input type="text" placeholder="First Name"/>
+      <input type="text" placeholder="First Name" required/>
       <br />
       <label class="me-auto">Last Name *</label>
-      <input type="text" placeholder="Last Name" /> <br />
+      <input type="text" placeholder="Last Name" required /> <br />
       <label class="me-auto">South African ID number *</label>
-      <input type="text" placeholder="ID number" /> <br />
+      <input type="text" placeholder="ID number"  required/> <br />
       <label class="me-auto">Date of birth *</label>
-      <input type="date" placeholder="yyyy/mm/dd" /> <br />
+      <input type="date" placeholder="yyyy/mm/dd"  required/> <br />
       <label class="me-auto">Email address *</label>
-      <input type="text" placeholder="Email" id="pass" /> 
+      <input type="text" placeholder="Email" id="pass" required /> 
       <br />
       <label class="me-auto">Create a password *</label>
       <input type="password" placeholder="Must be at least 8 characters" />
