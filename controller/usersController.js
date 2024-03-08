@@ -5,7 +5,7 @@ import express from "express";
 
 const userRouter = express.Router()
 
-userRouter.get('/', verifyToken, (req, res)=>{
+userRouter.get('/', (req, res)=>{
     try{
         users.fetchUsers(req, res)
     }catch(e){
