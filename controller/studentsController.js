@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { students } from '../model/index.js'; 
+import { verifyToken } from '../middleware/userAuthenticate.js';
 
 const studentRouter = express.Router()
 
@@ -26,7 +27,7 @@ studentRouter.get('/:id', (req, res)=>{
     }
 })
 
-studentRouter.post('/book', bodyParser.json(), (req, res)=>{
+studentRouter.post('/book', verifyToken, (req, res)=>{
     try{
         students.book(req, res)
     }catch(e){
