@@ -1,10 +1,10 @@
 <template>
-  <br /><br />
-  <div class="container">
+ <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <div class="container-fluid" id="registerPage">
     <br>
     <h1 class="display-3" id="heading">Register</h1>
     <br /><br />
-    <div class="container d-grid justify-content-center w-100" id="regForm">
+    <div class="container d-grid justify-content-center w-100 shadow" id="regForm">
       <br /><br />
       <p class="lead fs-5 fw-bold me-auto">Register and book a course today!</p>
       <p>You must be at least 18 and a South African citizen to register</p>
@@ -25,7 +25,7 @@
       <br />
       <br />
       <div>
-        <button class="btn w-50" @click="registerUser">Register</button> <br />
+        <button class="btn" @click="registerUser">Register</button> <br />
       </div>
       <br />
       <p class="me-auto">
@@ -34,10 +34,10 @@
           <router-link to="/login" id="span">Login</router-link>
         </span>
       </p>
+      <br><br>
     </div>
+    <br><br>
   </div>
-  <br /><br />
-  <br /><br />
 </template>
 
 <script>
@@ -77,8 +77,10 @@ export default {
 
 <style scoped>
 #heading {
-  color: #9a2c0a;
-  font-weight: bold;
+  color: #ffffff;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 input {
   border: 0.5px solid;
@@ -86,16 +88,24 @@ input {
   border-color: #9a2c0a;
 }
 #regForm {
-  border: #9a2c0a solid 0.5px;
-  border-radius: 5px;
-  padding-inline: 20px;
+  background-color: white;
+  border-radius: 15px;
+  color: #9a2c0a;
 }
 button {
-  background-color: #9a2c0a;
   color: white;
+  background-color: #9A2C0A;
+  display: flex;
+  
 }
 #span {
-  color: #9a2c0a;
+  color: #dc9467;
+  font-weight: bold;
   text-decoration: none;
+}
+#registerPage{
+  background: url("https://i.ibb.co/4PG0nyZ/Getty-Images-1361844238-1024x683.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 </style>

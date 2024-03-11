@@ -1,5 +1,5 @@
 <template>
-  <br /><br />
+ <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
   <div class="container">
     <h1 class="display-3" id="heading">Course details</h1>
     <br /><br />
@@ -16,22 +16,22 @@
         <li>Textbooks and help guides</li>
         <li>Internationally recognised qualification after completion</li>
       </ul>
-      <br><br>
+      <br /><br />
       <router-link to="/book">
         <button class="btn">Book your spot</button>
       </router-link>
     </div>
     <div v-else>
-        <SpinnerComp></SpinnerComp>
+      <SpinnerComp></SpinnerComp>
     </div>
   </div>
 </template>
 
 <script>
-import SpinnerComp from '@/components/SpinnerComp.vue';
+import SpinnerComp from "@/components/SpinnerComp.vue";
 export default {
-  components:{
-    SpinnerComp
+  components: {
+    SpinnerComp,
   },
   computed: {
     courses() {
@@ -45,17 +45,19 @@ export default {
 </script>
 
 <style scoped>
-    button{
-        background-color: #9A2C0A;
-        color: white;
-    }
-    #heading{
-        color: #9A2C0A;
-        font-weight: bold;
-    }
-    #courseDetails{
-        border: #9A2C0A solid 0.5px;
-        border-radius: 5px;
-        width: 50rem;
-    }
+button {
+  background-color: #9a2c0a;
+  color: white;
+}
+#heading {
+  color: #9a2c0a;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#courseDetails {
+  border: #9a2c0a solid 0.5px;
+  border-radius: 5px;
+  width: 50rem;
+}
 </style>

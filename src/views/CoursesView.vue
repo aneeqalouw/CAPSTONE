@@ -1,9 +1,9 @@
 <template>
-  <br /><br />
-  <h1 class="display-4 d-flex justify-content-center" id="heading">Our Courses</h1>
-  <div class="container d-flex justify-content-center">
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <div class="container-fluid" id="coursesPage">
+    <h1 class="display-4" id="heading">Our Courses</h1>
     <div v-if="courses">
-      <div class="row text-white" v-for="course in courses" :key="course.courseID" id="courseContainer">
+      <div class="row d-flex mx-auto text-white" v-for="course in courses" :key="course.courseID" id="courseContainer">
         <div class="col">
             <br>
           <h5>{{ course.courseName }}</h5>
@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    <br><br>
   </div>
 </template>
 
@@ -40,14 +41,22 @@ export default {
 
 <style scoped>
 #heading{
-  color: #9A2C0A ;
-  font-weight: bold;
+  color: #ffffff;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-    #courseContainer{
-        background-color: #F1A778;
-        height: 180px;
-        width: 700px;
-        border-radius: 30px;
-        margin-block: 50px;
-    }
+#courseContainer{
+    background-color: #F1A778;
+    height: 180px;
+    width: 700px;
+    border-radius: 30px;
+    margin-block: 50px;
+}
+#coursesPage{
+  background: url("https://i.ibb.co/4PG0nyZ/Getty-Images-1361844238-1024x683.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
 </style>

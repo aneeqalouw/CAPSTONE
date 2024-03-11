@@ -1,6 +1,6 @@
 <template>
-  <br><br>
-  <div class="container">
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <div class="container-fluid vh-100" id="aboutPage">
     <h1 class="display-3" id="heading">About us</h1>
     <br><br>
     <p>
@@ -26,8 +26,8 @@
       <li>Thailand (Thai module)</li>
       <li>Mexico, Costa Rica and Spain (Spanish module)</li>
     </ul>
+    <br><br>
   </div>
-  <br><br>
 </template>
 
 <script>
@@ -38,11 +38,18 @@
 
 <style scoped>
 #heading{
-  color: #9A2C0A;
-  font-weight: bold;
+  color: #ffffff;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 ul{
   list-style-position: inside;
 }
-
+#aboutPage{
+  background: url("https://i.ibb.co/41BPm2w/tefl-globe.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
 </style>

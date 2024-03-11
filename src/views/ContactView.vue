@@ -93,7 +93,9 @@ export default {};
 <style scoped>
 #heading {
   color: #9a2c0a;
-  font-weight: bold;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 a {
   text-decoration: none;

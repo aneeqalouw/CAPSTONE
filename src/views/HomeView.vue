@@ -1,4 +1,5 @@
 <template>
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
   <div class="container-fluid" id="home">
     <br /><br />
     <br /><br />
@@ -68,7 +69,9 @@ export default {};
 <style scoped>
 #heading{
   color: #9A2C0A ;
-  font-weight: bold;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #home{
   background-color: #F1A778 ;

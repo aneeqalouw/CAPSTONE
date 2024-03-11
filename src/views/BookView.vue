@@ -1,15 +1,15 @@
 <template>
-  <br /><br />
-  <div class="container">
-    <h1 class="display-3" id="heading">Book</h1>
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <div class="container-fluid vh-100" id="bookPage">
+    <h1 class="display-2 fw-bold" id="heading">Book</h1>
     <br /><br />
-    <div class="container w-50" id="booking">
-      <br /><br />
+    <div class="container w-75 shadow" id="booking">
+      <br />
       <label class="fs-4">Course *</label> <br>
       <div class="dropdown">
         <button
           id="drop"
-          class="btn dropdown-toggle"
+          class="btn dropdown-toggle w-25"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -42,7 +42,7 @@
       <div class="dropdown">
         <button
           id="drop"
-          class="btn dropdown-toggle"
+          class="btn dropdown-toggle w-25"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -103,14 +103,13 @@
         </ul>
       </div>
       <br /><br />
-      <button class="btn" id="btnbook" @click="addStudent(payload)">
+      <button class="btn w-25 fw-bold" @click="addStudent(payload)" id="btnBook">
         Book your spot
       </button>
       <br /><br />
+      <br><br>
     </div>
   </div>
-  <br /><br />
-  <br /><br />
 </template>
 
 <script>
@@ -153,22 +152,30 @@ export default {
 
 <style scoped>
 #heading {
-  color: #9a2c0a;
-  font-weight: bold;
+  color: #ffffff;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #drop {
   border: #9a2c0a solid 0.5px;
   border-radius: 5px;
 }
-#btnbook {
-  background-color: #9a2c0a;
-  color: white;
-}
 #booking {
-  border: #9a2c0a solid 0.5px;
-  border-radius: 5px;
+  background-color: white;
+  border-radius: 15px;
+  color: #9a2c0a;
 }
 a {
   text-decoration: none;
+}
+#bookPage{
+  background: url("https://i.ibb.co/4PG0nyZ/Getty-Images-1361844238-1024x683.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+#btnBook{
+  color: white;
+  background-color: #9A2C0A;
 }
 </style>
