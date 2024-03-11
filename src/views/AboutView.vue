@@ -1,6 +1,5 @@
 <template>
   <br><br>
-  <br><br>
   <div class="container">
     <h1 class="display-3" id="heading">About us</h1>
     <br><br>

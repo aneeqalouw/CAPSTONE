@@ -1,10 +1,9 @@
 <template>
   <br /><br />
-  <br /><br />
   <div class="container">
     <h1 class="display-3" id="heading">Login</h1>
     <br><br>
-    <div class="container d-grid justify-content-center w-75 shadow" id="loginForm">
+    <div class="container d-grid justify-content-center w-75" id="loginForm">
       <br /><br />
       <label class="me-auto">Email *</label> <br>
       <input type="text" placeholder="Email" v-model="payload.email" class=" w-100" required/> <br> <br>

@@ -1,6 +1,5 @@
 <template>
   <br /><br />
-  <br /><br />
   <h1 class="display-4 d-flex justify-content-center" id="heading">Our Courses</h1>
   <div class="container d-flex justify-content-center">
     <div v-if="courses">

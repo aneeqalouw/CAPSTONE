@@ -1,45 +1,38 @@
 <template>
   <div>
-  <nav class="navbar shadow fixed-top">
+    <div class="row d-block justify-content-center">
+        <img src="https://i.ibb.co/Sy3gnbq/abroadacademy-logo.png" alt="Logo" id="logo">
+      </div>
+    <nav class="navbar navbar-expand-lg bg-white shadow">
   <div class="container-fluid">
-    <router-link to="/">
-      <img src="https://i.ibb.co/8szRnQW/abroadacademy-logo.png" alt="Logo" id="logo">
-    </router-link>
-    <div class="ms-auto mx-3">
-      <router-link to="/login">
-        <button class="btn rounded-5" id="loginbtn">Register/Login</button>
-      </router-link>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="navToggle">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">  
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <router-link to="/">Home</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/about">About us</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/courses">Courses</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/book">Book</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/contact">Contact us</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/admin">Admin</router-link>
-          </li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <br><br>
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+        <li class="nav-item">
+          <router-link to="/">Home</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/about">About</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/courses">Courses</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/book">Book</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/contact">Contact us</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/admin">Admin</router-link>
+        </li>
+        <li class="nav-item" id="loginbtn">
+          <router-link to="/login">Login/register</router-link>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -51,9 +44,9 @@ export default {};
 </script>
 
 <style scoped>
-nav{
-  background-image: linear-gradient(#fbd6be, #fbe4d7,#fbefe8 );
-}
+/* nav{
+  background-image: linear-gradient(#fcdeca, #fceee6,#fffdfc );
+} */
 nav a{
     text-decoration: none;
     color:black;
@@ -74,13 +67,18 @@ nav a.router-link-exact-active {
 #loginbtn{
   border: #9A2C0A solid 0.5px;
   color: #9A2C0A;
+  border-radius: 5px;
+  padding-inline: 5px;
 }
 #logo{
   height: 3rem;
   width: 8rem;
 }
+#loginbtn a:hover{
+  color: white;
+
+}
 #loginbtn:hover{
   background-color: #9A2C0A;
-  color: white;
 }
 </style>
