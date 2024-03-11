@@ -44,10 +44,7 @@ class Users{
         `
         db.query(qry, [data], (err)=>{
             if(err){
-                res.json({
-                    status: res.statusCode,
-                    msg: 'Email address already in use'
-                })
+                throw err
             }else{
                 let token = createToken(user)
                 res.json({
