@@ -1,9 +1,10 @@
 <template>
+   <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
   <br /><br />
   <div class="container d-block justify-content-center">
     <h1 class="display-3" id="heading">Get in touch</h1>
     <br /><br />
-    <div class="row d-block d-md-flex mx-auto gap-3 h-50 w-50" id="contacts">
+    <div class="row d-block d-md-flex mx-auto gap-3 h-50" id="contacts">
       <div class="col shadow" id="block">
         <br><br>
         <a href="tel:+27-83-424-6185">
@@ -69,15 +70,15 @@
     <br><br>
     <h2 class="display-6" id="heading">Pop us a message</h2>
     <br><br>
-    <div class="row d-grid mx-auto w-50 justify-content-center" id="form">
-        <form action="" method="post">
+    <div class="row d-grid mx-auto justify-content-center" id="form">
+        <form action="https://formspree.io/f/mzbnvjzj" method="post">
             <br><br>
-            <label>Name</label> <br>
+            <label>Name *</label> <br>
             <input type="text" name="name" required placeholder="Name"> <br> <br>
-            <label >Email</label> <br>
+            <label >Email *</label> <br>
             <input type="text" name="email" required placeholder="Email"> <br><br>
-            <label>Message</label> <br>
-            <textarea name="message" cols="30" rows="10" required placeholder="Message"></textarea><br><br>
+            <label>Message *</label> <br>
+            <textarea name="message" cols="25" rows="5" required placeholder="Message"></textarea><br><br>
             <button class="btn w-50" type="submit">Send</button>
             <br><br>
         </form>

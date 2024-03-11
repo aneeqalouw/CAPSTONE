@@ -1,4 +1,5 @@
 <template>
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
   <br><br>
   <div class="container">
     <h1 class="display-3" id="heading">Admin</h1>
@@ -253,11 +254,6 @@
                   />
                   <input
                     type="text"
-                    placeholder="DOB"
-                    v-model="userPayload.dob"
-                  />
-                  <input
-                    type="text"
                     placeholder="email"
                     v-model="userPayload.email"
                   />
@@ -299,7 +295,6 @@
                 <th>userID</th>
                 <th>firstName</th>
                 <th>lastName</th>
-                <th>DOB</th>
                 <th>email</th>
                 <th>Role</th>
                 <th>Action</th>
@@ -310,7 +305,6 @@
                 <td>{{ user.userID }}</td>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
-                <td>{{ user.dob }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.userRole }}</td>
                 <td >
@@ -360,11 +354,6 @@
                             type="text"
                             placeholder="lastName"
                             v-model="userPayload.lastName"
-                          />
-                          <input
-                            type="text"
-                            placeholder="DOB"
-                            v-model="userPayload.dob"
                           />
                           <input
                             type="text"
@@ -592,8 +581,10 @@ export default {
 </script>
 
 <style scoped>
-  #heading{
-    color: #9a2c0a;
-    font-weight: bold;
-  }
+#heading{
+  color: #9a2c0a;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 </style>

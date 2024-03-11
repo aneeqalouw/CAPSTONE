@@ -9,23 +9,21 @@
       <p class="lead fs-5 fw-bold me-auto">Register and book a course today!</p>
       <p>You must be at least 18 and a South African citizen to register</p>
       <label class="me-auto">First Name *</label>
-      <input type="text" placeholder="First Name" required/>
+      <input type="text" placeholder="First Name" required v-model="payload.firstName"/>
       <br />
       <label class="me-auto">Last Name *</label>
-      <input type="text" placeholder="Last Name" required /> <br />
+      <input type="text" placeholder="Last Name" required v-model="payload.lastName" /> <br />
       <label class="me-auto">South African ID number *</label>
-      <input type="text" placeholder="ID number"  required/> <br />
-      <label class="me-auto">Date of birth *</label>
-      <input type="date" placeholder="yyyy/mm/dd"  required/> <br />
+      <input type="text" placeholder="ID number"  required v-model="payload.userID"/> <br />
       <label class="me-auto">Email address *</label>
-      <input type="text" placeholder="Email" id="pass" required /> 
+      <input type="text" placeholder="Email" id="pass" required v-model="payload.email"/> 
       <br />
       <label class="me-auto">Create a password *</label>
-      <input type="password" placeholder="Must be at least 8 characters" />
+      <input type="password" placeholder="Must be at least 8 characters" required v-model="payload.pwd" />
       <br />
       <br />
       <div>
-        <button class="btn" @click="registerUser">Register</button> <br />
+        <button class="btn" @click.prevent="dob(payload.userID)">Register</button> <br />
       </div>
       <br />
       <p class="me-auto">
@@ -41,14 +39,17 @@
 </template>
 
 <script>
+import router from '@/router';
 export default {
+  components: {
+    router
+  },
   data(){
     return {
         payload: {
             userID: "",
             firstName: "",
             lastName: "",
-            dob: "",
             email: "",
             pwd: "",
             userRole: "",
@@ -59,18 +60,31 @@ export default {
     users(){
         return this.$store.state.users
     },
-    // validate(){
-    //   if(this.payload.userID < 13){
-    //     alert('Please enter a valid 13 digit South African ID number')
-    //   }else{
-    //     this.registerUser
-    //   }
-    // }
+
   },
   methods: {
     registerUser() {
       this.$store.dispatch("register", this.payload);
     },
+    dob(payload){
+      let currYear = +new Date().getFullYear()
+      let year = +this.payload.userID.slice(0,2)
+      if(year>24){
+        year= 1900+ year
+      }else{
+        year= 2000 +year
+      }
+      if(currYear-year < 18){
+        alert('You are not old enough to register')
+        router.push({name: 'home'})
+      }else if(this.payload.userID.length <13){
+        alert('Please enter a valid 13 digit South African ID number')
+      }else if(this.payload.pwd.length < 8){
+        alert('Password must be at least 8 characters')
+      }else{
+        this.registerUser()
+      }
+    }
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <NavBar/>
-  <main class>
+  <main>
     <router-view/>
     <div style="display: none;">
       <SpinnerComp></SpinnerComp>

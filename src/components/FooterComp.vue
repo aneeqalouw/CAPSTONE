@@ -68,7 +68,7 @@
               />
             </svg>
           </a>
-          <a href="#">
+          <a href="https://youtube.com/@noodle_water?si=0rzOdWzf2GJfiW_6">
             <svg
               width="20"
               height="20"
@@ -82,7 +82,7 @@
               />
             </svg>
           </a>
-          <a href="#">
+          <a href="https://www.tiktok.com/@samcondary?_t=8kaeZ2m95BF&_r=1">
             <svg
               width="20"
               height="20"
@@ -132,7 +132,7 @@ a {
 }
 #line1{
     background-color: black;
-    height: 1px;
+    height: 0.5px;
     width: 100px;
 }
 #line2{

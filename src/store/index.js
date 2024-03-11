@@ -44,7 +44,8 @@ export default createStore({
     //users
     async register(context, payload) {
       try{
-        let {msg} = (await axios.post(`${dbURL}users/register`, payload)).data
+        let {msg, token} = (await axios.post(`${dbURL}users/register`, payload)).data
+        if(token) {
           context.dispatch('fetchUsers')
           sweet({
             title: 'Registration',
@@ -52,10 +53,20 @@ export default createStore({
             icon: "success",
             timer: 2000
           }) 
+          router.push({name: 'login'})
+        }else {
+          sweet({
+            title: 'Error',
+            text: 'There was an trying to register',
+            icon: "error",
+            timer: 2000
+          }) 
+          router.push({name: 'register'})
+        }
       }catch(e) {
         sweet({
           title: 'Error',
-          text: 'There was an trying to',
+          text: 'There was an trying to register',
           icon: "error",
           timer: 2000
         }) 
@@ -343,7 +354,6 @@ export default createStore({
             text: msg,
             icon: "success",
             timer: 2000
-
           })
       }catch(e) {
         sweet({

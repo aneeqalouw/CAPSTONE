@@ -6,104 +6,28 @@
     <div class="container w-75 shadow" id="booking">
       <br />
       <label class="fs-4">Course *</label> <br>
-      <div class="dropdown">
-        <button
-          id="drop"
-          class="btn dropdown-toggle w-25"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Select course
-        </button>
-        <ul
-          class="dropdown-menu"
-          
-        >
-          <div class="form-check" v-for="course in courses"
-          :key="course.courseID">
-            <input
-              :value="course.courseID"
-              class="form-check-input"
-              type="radio"
-              :name="course.courseID"
-              :id="course.courseName"
-            />
-            <label class="form-check-label" :for="course.courseName">
-              {{ course.courseName }}
-            </label>
-          </div>
-        </ul>
+      <div class="row d-flex justify-content-center">
+        <select class="form-select w-25" aria-label="Default select example" name="courseData" id="courseData" v-model="selectedCourse" @change="onChangeSelected">
+          <option selected>Select a course</option>
+          <option v-for="course in courses" :key="course.courseID" :value="course.courseID" >
+            {{ course.courseName }}
+          </option>
+      </select>
       </div>
       <br /><br />
 
        <!-- ** -->
       <label class=" fs-4">Start date *</label>
-      <div class="dropdown">
-        <button
-          id="drop"
-          class="btn dropdown-toggle w-25"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Select start date
-        </button>
-        <ul
-          class="dropdown-menu"
-        >
-          <div class="form-check">
-            <input
-               value="04/04/2024"
-              class="form-check-input"
-              type="radio"
-              name="startDate"
-              id="startDate"
-            />
-            <label class="form-check-label">
-              4 April 2024
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-               value="26/06/2024"
-              class="form-check-input"
-              type="radio"
-              name="startDate"
-              id="startDate"
-            />
-            <label class="form-check-label">
-              26 June 2024
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-               value="15/09/2024"
-              class="form-check-input"
-              type="radio"
-              name="startDate"
-              id="startDate"
-            />
-            <label class="form-check-label">
-              15 September 2024
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-               value="27/11/2024"
-              class="form-check-input"
-              type="radio"
-              name="startDate"
-              id="startDate"
-            />
-            <label class="form-check-label">
-              27 November 2024
-            </label>
-          </div>
-        </ul>
+      <div class="row d-flex justify-content-center">
+        <select class="form-select w-25" aria-label="Default select example" name="dateData" id="dateData" v-model="selectedDate" @change="onChangeSelectedDate">
+          <option selected>Select start date</option>
+          <option v-for="date in dates" :value="date">
+            {{ date }}
+          </option>
+      </select>
       </div>
       <br /><br />
-      <button class="btn w-25 fw-bold" @click="addStudent(payload)" id="btnBook">
+      <button class="btn w-25 fw-bold" @click.prevent="addStudent" id="btnBook">
         Book your spot
       </button>
       <br /><br />
@@ -113,6 +37,8 @@
 </template>
 
 <script>
+import { useCookies } from 'vue3-cookies'
+const {cookies} = useCookies()
 export default {
   data() {
     return {
@@ -120,15 +46,13 @@ export default {
         studID: null,
         startDate: "",
         courseID: "",
-        userID: "",
+        userID: this.loggedUser?.result.userID,
       },
-      // coursePayload: {
-      //   courseID: "",
-      //   courseName: "",
-      //   courseDuration: "",
-      //   courseDesc: "",
-      //   coursePrice: null
-      // }
+      selectedCourse: "",
+      selectedDate: "",
+      dates: [
+        '04/04/2024', '15/06/2024', '26/09/2024', '01/12/2024'
+      ]
     };
   },
   computed: {
@@ -138,12 +62,21 @@ export default {
     courses() {
       return this.$store.state.courses;
     },
+    loggedUser() {
+      return cookies.get('LegitUser')
+    }
   },
   methods: {
     addStudent() {
       this.$store.dispatch("book", this.payload);
     },
-  },
+    onChangeSelected(){
+      console.log(this.selectedItem);
+    },
+    onChangeSelectedDate(){
+      console.log(this.selectedDate);
+    }
+   },
   mounted() {
     this.$store.dispatch("fetchCourses");
   },
@@ -157,9 +90,11 @@ export default {
   font-weight: 400;
   font-style: normal;
 }
-#drop {
-  border: #9a2c0a solid 0.5px;
-  border-radius: 5px;
+#courseData{
+  border: #9A2C0A solid 0.5px;
+}
+#dateData{
+  border: #9A2C0A solid 0.5px;
 }
 #booking {
   background-color: white;
