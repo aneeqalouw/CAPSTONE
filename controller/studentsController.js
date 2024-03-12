@@ -27,7 +27,7 @@ studentRouter.get('/:id', (req, res)=>{
     }
 })
 
-studentRouter.post('/book', (req, res)=>{
+studentRouter.post('/book', verifyToken(), (req, res)=>{
     try{
         students.book(req, res)
     }catch(e){
