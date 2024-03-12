@@ -7,7 +7,7 @@
       <br />
       <label class="fs-4">Course *</label> <br>
       <div class="row d-flex justify-content-center">
-        <select class="form-select w-25" aria-label="Default select example" name="courseData" id="courseData" v-model="selectedCourse" @change="onChangeSelected">
+        <select class="form-select w-50" aria-label="Default select example" name="courseData" id="courseData" v-model="selectedCourse" @change="onChangeSelected">
           <option selected>Select a course</option>
           <option v-for="course in courses" :key="course.courseID" :value="course.courseID" >
             {{ course.courseName }}
@@ -19,7 +19,7 @@
        <!-- ** -->
       <label class=" fs-4">Start date *</label>
       <div class="row d-flex justify-content-center">
-        <select class="form-select w-25" aria-label="Default select example" name="dateData" id="dateData" v-model="selectedDate" @change="onChangeSelectedDate">
+        <select class="form-select w-50" aria-label="Default select example" name="dateData" id="dateData" v-model="selectedDate" @change="onChangeSelectedDate">
           <option selected>Select start date</option>
           <option v-for="date in dates" :value="date">
             {{ date }}
@@ -27,7 +27,7 @@
       </select>
       </div>
       <br /><br />
-      <button class="btn w-25 fw-bold" @click.prevent="addStudent" id="btnBook">
+      <button class="btn w-50 fw-bold" @click.prevent="addStudent" id="btnBook">
         Book your spot
       </button>
       <br /><br />

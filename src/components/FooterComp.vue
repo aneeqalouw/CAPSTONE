@@ -120,6 +120,7 @@ export default {
 #footer {
   background-color: #f4f4f4;
   text-align: start;
+  position: relative;
   bottom: 0;
 }
 #copy{
