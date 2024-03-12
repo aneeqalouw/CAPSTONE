@@ -1,6 +1,8 @@
 <template>
   <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
-  <div class="container-fluid" id="aboutPage">
+  <div class="container-fluid h-100" id="aboutPage">
+    <br><br>
+    <div class="row" id="slide1">
       <h1 class="display-3" id="heading">About us</h1>
       <br><br>
       <p>
@@ -10,8 +12,10 @@
         <br>
         We don't only offer TEFL training, but also foreign language training to fully prepare
         our students to work abroad.
-      </p>
-      <br><br>
+      </p> 
+    </div>
+    <br><br>
+    <div class="row" id="slide2">
       <h2 class=" display-6" id="heading">What we offer</h2>
       <br>
       <p>
@@ -26,7 +30,7 @@
         <li>Thailand (Thai module)</li>
         <li>Mexico, Costa Rica and Spain (Spanish module)</li>
       </ul>
-    <br><br>
+    </div>
   </div>
 </template>
 
@@ -51,5 +55,31 @@ ul{
   background-size: cover;
   background-attachment: fixed;
   color: white;
+}
+#slide1{
+  animation: slideLeft 0.9s ease-in-out 1 ;
+}
+#slide2{
+  animation: slideRight 0.9s ease-in-out 1 ;
+}
+
+/* animations */
+@keyframes slideLeft{
+  from {
+    transform: translateX(1000px);
+  }
+  to {
+    transform: translateX(0);
+  }
+
+}
+
+@keyframes slideRight{
+  from {
+    transform: translateX(-1000px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 </style>

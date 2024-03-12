@@ -21,15 +21,20 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <SpinnerComp></SpinnerComp>
+    </div>
     <br><br>
   </div>
 </template>
 
 <script>
 import CourseView from './CourseView.vue';
+import SpinnerComp from '@/components/SpinnerComp.vue';
 export default {
   components: {
-    CourseView
+    CourseView,
+    SpinnerComp
   },
   computed: {
     courses() {

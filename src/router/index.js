@@ -34,6 +34,21 @@ const routes = [
     name: 'login',
     component: () => import('../views/LoginView.vue')
   },
+  
+  //   path: '/account',
+  //   name: 'account',
+  //   component: () => import('../views/AccountView.vue')
+  //   // beforeEnter(){
+  //   //   if(cookies.get('LegitUser')){
+  //   //     router.push({name: 'account'})
+  //   //   }
+  //   // }
+  // },
+  // {
+  //   path: '/updateaccount',
+  //   name: 'updateaccount',
+  //   component: () => import('../views/UpdateAccount.vue')
+  // },
   {
     path: '/book',
     name: 'book',

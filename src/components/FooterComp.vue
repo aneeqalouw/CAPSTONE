@@ -68,7 +68,7 @@
               />
             </svg>
           </a>
-          <a href="https://youtube.com/@noodle_water?si=0rzOdWzf2GJfiW_6">
+          <a href="https://youtube.com/@noodle_water?si=0rzOdWzf2GJfiW_6" target="_blank">
             <svg
               width="20"
               height="20"
@@ -82,7 +82,7 @@
               />
             </svg>
           </a>
-          <a href="https://www.tiktok.com/@samcondary?_t=8kaeZ2m95BF&_r=1">
+          <a href="https://www.tiktok.com/@samcondary?_t=8kaeZ2m95BF&_r=1" target="_blank">
             <svg
               width="20"
               height="20"
