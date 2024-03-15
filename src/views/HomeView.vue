@@ -9,18 +9,14 @@
     <div class="row d-flex justify-content-center align-items-center">
       <h1 class="display-3" id="heading">
         Abroad Academy
-        <span
-          ><h3 class="display-6 fw-bold text-white">
-            -The best TEFL and Foreign Language school-
-          </h3></span
-        >
-        <span
-          ><h6 class="fs-3 fw-bold text-white">
-            Learn the language of your destination country along with your TEFL
-            qualification
-          </h6></span
-        >
       </h1>
+       <h3 class="display-6 fw-bold text-white">
+          -The best TEFL and Foreign Language school-
+        </h3>
+       <h6 class="fs-3 fw-bold text-white">
+          Learn the language of your destination country along with your TEFL
+          qualification
+        </h6>
     </div>
     <br /><br />
     <div class="row d-block d-md-flex justify-content-center gap-5">

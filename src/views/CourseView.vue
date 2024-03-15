@@ -58,6 +58,6 @@ button {
 #courseDetails {
   border: #9a2c0a solid 0.5px;
   border-radius: 5px;
-  width: 50rem;
+  /* width: 50rem; */
 }
 </style>

@@ -7,8 +7,7 @@
       <br />
       <label class="fs-4">Course *</label> <br>
       <div class="row d-flex justify-content-center">
-        <select class="form-select w-25" aria-label="Default select example" name="courseData" id="courseData" v-model="selectedCourse" @change="onChangeSelected">
-          <option selected>Select a course</option>
+        <select class="form-select w-50" aria-label="Default select example" name="courseData" id="courseData" v-model="selectedCourse">
           <option v-for="course in courses" :key="course.courseID" :value="course.courseID" >
             {{ course.courseName }}
           </option>
@@ -19,15 +18,14 @@
        <!-- ** -->
       <label class=" fs-4">Start date *</label>
       <div class="row d-flex justify-content-center">
-        <select class="form-select w-25" aria-label="Default select example" name="dateData" id="dateData" v-model="selectedDate" @change="onChangeSelectedDate">
-          <option selected>Select start date</option>
+        <select class="form-select w-50" aria-label="Default select example" name="dateData" id="dateData" v-model="selectedDate">
           <option v-for="date in dates" :value="date">
             {{ date }}
           </option>
       </select>
       </div>
       <br /><br />
-      <button class="btn w-25 fw-bold" @click.prevent="addStudent" id="btnBook">
+      <button class="btn w-50 fw-bold" @click.prevent="addStudent" id="btnBook">
         Book your spot
       </button>
       <br /><br />
@@ -42,17 +40,17 @@ const {cookies} = useCookies()
 export default {
   data() {
     return {
-      payload: {
-        studID: null,
-        startDate: "",
-        courseID: "",
-        userID: this.loggedUser?.result.userID,
-      },
       selectedCourse: "",
       selectedDate: "",
       dates: [
-        '04/04/2024', '15/06/2024', '26/09/2024', '01/12/2024'
-      ]
+        '2024/04/04', '2024/15/06', '2024/09/26', '2024/12/02'
+      ],
+      payload: {
+        studID: null,
+        startDate: this.selectedDate,
+        courseID: this.selectedCourse,
+        userID: this.loggedUser?.result.userID,
+      },
     };
   },
   computed: {
@@ -69,12 +67,6 @@ export default {
   methods: {
     addStudent() {
       this.$store.dispatch("book", this.payload);
-    },
-    onChangeSelected(){
-      console.log(this.selectedItem);
-    },
-    onChangeSelectedDate(){
-      console.log(this.selectedDate);
     }
    },
   mounted() {

@@ -474,7 +474,7 @@
                 <td>{{ student.courseID }}</td>
                 <td>{{ student.startDate }}</td>
                 <td>
-                  <button class="btn btn-danger">Remove</button>
+                  <button class="btn btn-danger" @click="deleteStudent(student.studID)">Remove</button>
                 </td>
               </tr>
             </tbody>
@@ -509,7 +509,6 @@ export default {
         userID: "",
         firstName: "",
         lastName: "",
-        dob: "",
         email: "",
         pwd: "",
         userRole: "",
@@ -570,7 +569,10 @@ export default {
     // student methods
     addStudent(){
       this.$store.dispatch("book", this.studentPayload)
-    }
+    },
+    deleteStudent(studID){
+      this.$store.dispatch("cancel", {id: studID})
+    },
   },
   mounted() {
     this.$store.dispatch("fetchUsers");

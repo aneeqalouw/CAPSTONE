@@ -48,6 +48,7 @@
         <br><br>
         <a
           href="https://www.google.com/maps/d/u/0/viewer?mid=1lhs71HbZ6S6cAR6VQVrpW2dolhw&ll=-33.98215743335129%2C18.38364600000002&z=12"
+          target="_blank"
         >
           <svg
             width="40"
