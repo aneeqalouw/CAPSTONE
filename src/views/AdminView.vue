@@ -385,7 +385,7 @@
                       </div>
                     </div>
                   </div>
-                  <button @click="deleteingUser(user.userID)" class="btn btn-danger">
+                  <button @click="deletingUser(user.userID)" class="btn btn-danger">
                     Delete
                   </button>
                 </td>
@@ -546,7 +546,7 @@ export default {
     registerUser() {
       this.$store.dispatch("register", this.userPayload);
     },
-    deleteingUser(userID) {
+    deletingUser(userID) {
       this.$store.dispatch("deleteUser", { id: userID });
     },
     updatingUser() {
