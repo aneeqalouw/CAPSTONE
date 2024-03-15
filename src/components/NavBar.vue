@@ -44,6 +44,9 @@
             <li class="nav-item">
               <router-link to="/login">Login/register</router-link>
             </li>
+            <li class="nav-item">
+              <router-link to="/account">Me</router-link>
+            </li>
           </ul>
         </div>
       </div>

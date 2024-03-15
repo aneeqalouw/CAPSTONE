@@ -465,6 +465,7 @@
                 <th>userID</th>
                 <th>courseID</th>
                 <th>startDate</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody v-if="students">
@@ -491,7 +492,8 @@
 
 <script>
 import SpinnerComp from "@/components/SpinnerComp.vue";
-
+import { useCookies } from "vue3-cookies";
+const cookies = useCookies()
 export default {
   components: {
     SpinnerComp,
@@ -530,6 +532,12 @@ export default {
     },
     students(){
       return this.$store.state.students
+    },
+    checkUser(){
+      cookies.get('LegitUser')
+      if(user.userRole != 'admin'){
+        alert('Only admins can view this page')
+      }
     }
   },
   methods: {

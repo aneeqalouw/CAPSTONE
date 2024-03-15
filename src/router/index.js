@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { useCookies } from 'vue3-cookies'
+import { computed } from 'vue'
 const {cookies} = useCookies()
 
 const routes = [
@@ -34,21 +35,23 @@ const routes = [
     name: 'login',
     component: () => import('../views/LoginView.vue')
   },
-  
-  //   path: '/account',
-  //   name: 'account',
-  //   component: () => import('../views/AccountView.vue')
-  //   // beforeEnter(){
-  //   //   if(cookies.get('LegitUser')){
-  //   //     router.push({name: 'account'})
-  //   //   }
-  //   // }
-  // },
-  // {
-  //   path: '/updateaccount',
-  //   name: 'updateaccount',
-  //   component: () => import('../views/UpdateAccount.vue')
-  // },
+  {
+    path: '/account',
+    name: 'account',
+    component: () => import('../views/AccountView.vue'),
+    beforeEnter(){
+      if(!cookies.get('LegitUser')){
+        router.push({name: 'login'})
+      }else{
+        router.push({name: 'account'})
+      }
+    }
+  },
+  {
+    path: '/updateaccount',
+    name: 'updateaccount',
+    component: () => import('../views/UpdateAccount.vue')
+  },
   {
     path: '/book',
     name: 'book',
@@ -70,12 +73,11 @@ const routes = [
     name: 'admin',
     component: () => import('../views/AdminView.vue')
     // beforeEnter(){
-    //   cookies.get('LegitUser')
-    //   if(user.userRole == 'admin'){
-    //     router.push({name: 'admin'})
+    //   if(!cookies.get('LegitUser')){
+    //     router.push({name : 'login'})
     //   }else{
-    //     router.push({name: 'login'})
-    //   }
+    //     checkUser()
+    //   }  
     // }
     
   },
