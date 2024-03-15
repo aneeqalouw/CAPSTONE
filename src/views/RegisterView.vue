@@ -23,7 +23,7 @@
       <br />
       <br />
       <div>
-        <button class="btn" @click.prevent="dob(payload.userID)">Register</button> <br />
+        <button class="btn" @click.prevent="validate(payload.userID)">Register</button> <br />
       </div>
       <br />
       <p class="me-auto">
@@ -66,7 +66,7 @@ export default {
     registerUser() {
       this.$store.dispatch("register", this.payload);
     },
-    dob(payload){
+    validate(payload){
       let currYear = +new Date().getFullYear()
       let year = +this.payload.userID.slice(0,2)
       if(year>24){

@@ -60,7 +60,7 @@ export default {
     },
   },
   mounted(){
-    this.$store.dispatch("fetchUser", {id: user.userID});
+    this.$store.dispatch("fetchUsers");
     this.$store.dispatch("fetchStudents");
   }
 };
