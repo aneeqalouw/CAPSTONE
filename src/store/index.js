@@ -57,7 +57,7 @@ export default createStore({
         }else {
           sweet({
             title: 'Error',
-            text: 'There was an trying to register',
+            text: 'There was an error when trying to register',
             icon: "error",
             timer: 2000
           }) 
@@ -66,7 +66,7 @@ export default createStore({
       }catch(e) {
         sweet({
           title: 'Error',
-          text: 'There was an trying to register',
+          text: 'There was an error trying to register',
           icon: "error",
           timer: 2000
         }) 
