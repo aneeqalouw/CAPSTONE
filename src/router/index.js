@@ -71,14 +71,14 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminView.vue')
-    // beforeEnter(){
-    //   if(!cookies.get('LegitUser')){
-    //     router.push({name : 'login'})
-    //   }else{
-    //     checkUser()
-    //   }  
-    // }
+    component: () => import('../views/AdminView.vue'),
+    beforeEnter(){
+      if(!cookies.get('LegitUser')){
+        router.push({name : 'login'})
+      }else{
+        checkUser()
+      }  
+    }
     
   },
   {
