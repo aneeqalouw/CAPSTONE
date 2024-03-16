@@ -71,7 +71,7 @@
     <br><br>
     <h2 class="display-6" id="heading">Pop us a message</h2>
     <br><br>
-    <div class="row d-grid mx-auto justify-content-center" id="form">
+    <div class="row d-grid mx-auto justify-content-center shadow" id="form">
         <form action="https://formspree.io/f/mzbnvjzj" method="post">
             <br><br>
             <label>Name *</label> <br>
@@ -114,7 +114,7 @@ form{
     text-align: start;
 }
 #form{
-    border: #9a2c0a solid 0.5px;
+    background-color: #F1A778;
     border-radius: 5px;
 }
 input{

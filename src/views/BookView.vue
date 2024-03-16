@@ -40,11 +40,11 @@ const {cookies} = useCookies()
 export default {
   data() {
     return {
-      selectedCourse: "",
-      selectedDate: "",
       dates: [
         '2024/04/04', '2024/15/06', '2024/09/26', '2024/12/02'
       ],
+      selectedCourse: "",
+      selectedDate: "",
       payload: {
         studID: null,
         startDate: this.selectedDate,

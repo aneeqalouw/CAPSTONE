@@ -9,7 +9,7 @@
         />
       </router-link>
     </div>
-    <nav class="navbar navbar-expand-lg bg-white shadow">
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
       <div class="container-fluid">
         <button
           class="navbar-toggler"

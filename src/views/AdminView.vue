@@ -438,7 +438,7 @@
                 </div>
                 <div class="modal-body">
                   <input type="text" placeholder="courseID" v-model="studentPayload.courseID"> <br> <br>
-                  <input type="date" placeholder="startDate" v-model="studentPayload.startDate"> <br> <br>
+                  <input type="text" placeholder="startDate" v-model="studentPayload.startDate"> <br> <br>
                   <input type="text" placeholder="userID" v-model="studentPayload.userID">
                 </div>
                 <div class="modal-footer">
