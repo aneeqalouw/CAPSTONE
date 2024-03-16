@@ -71,6 +71,7 @@ export default {
    },
   mounted() {
     this.$store.dispatch("fetchCourses");
+    this.$store.dispatch("fetchStudents");
   },
 };
 </script>

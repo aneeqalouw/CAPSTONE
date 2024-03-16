@@ -533,12 +533,6 @@ export default {
     students(){
       return this.$store.state.students
     },
-    // checkUser(){
-    //   cookies.get('LegitUser')
-    //   if(user.userRole != 'admin'){
-    //     alert('Only admins can view this page')
-    //   }
-    // }
   },
   methods: {
 

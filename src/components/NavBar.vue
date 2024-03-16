@@ -1,11 +1,13 @@
 <template>
   <div>
     <div class="row d-block justify-content-center">
-      <img
-        src="https://i.ibb.co/Sy3gnbq/abroadacademy-logo.png"
-        alt="Logo"
-        id="logo"
-      />
+      <router-link to="/">
+        <img
+          src="https://i.ibb.co/Sy3gnbq/abroadacademy-logo.png"
+          alt="Logo"
+          id="logo"
+        />
+      </router-link>
     </div>
     <nav class="navbar navbar-expand-lg bg-white shadow">
       <div class="container-fluid">
@@ -55,8 +57,27 @@
 </template>
 
 <script>
-export default {
+// import router from '@/router';
+// import { useCookies } from 'vue3-cookies';
+// const cookies = useCookies()
 
+export default {
+  // computed: {
+  //   users(){
+  //     return this.$store.state.users
+  //   },
+  //   checkUser(){
+  //     if(cookies.result[userRole] != 'admin'){
+  //       alert('Only admins can view this page')
+  //       router.push({name: 'home'})
+  //     }else{
+  //       router.push({name: 'admin'})
+  //     }
+  //   }
+  // },
+  // mounted(){
+  //   this.$store.dispatch("fetchUsers")
+  // }
 };
 </script>
 
