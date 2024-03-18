@@ -4,6 +4,8 @@
     rel="stylesheet"
   />
   <h1 class="display-3" id="heading">My account</h1>
+  <br><br>
+
   <div class="container" id="account" v-if="user">
     <br /><br />
     <div class="row mx-auto">
@@ -13,9 +15,9 @@
         <p class="lead" id="label">ID</p>
         <input type="text" :value="user.userID" readonly />
         <p class="lead" id="label">Name</p>
-        <input type="text" :value="user.firstName" readonly class="" />
+        <input type="text" :value="user.firstName" readonly />
         <p class="lead" id="label">Surname</p>
-        <input type="text" :value="user.lastName" readonly class="" />
+        <input type="text" :value="user.lastName" readonly />
       </div>
     </div>
     <br /><br />
@@ -28,7 +30,7 @@
         <br /><br />
         <p class="lead" id="label">Email</p>
         <br />
-        <input type="text" :value="user.email" readonly class="" />
+        <input type="text" :value="user.email" readonly />
         <br /><br />
       </div>
     </div>
@@ -90,12 +92,13 @@
         </div>
       </div>
     </div>
+    <br><br>
     <div class="border-bottom"></div>
     <div class="row my-3">
       <router-link
         to="/logout"
-        class="text-danger lead fs-4 fw-bolder mx-1"
-        style="text-decoration: none; text-align: start;"
+        class="text-danger lead fs-4 mx-1"
+        style="text-decoration: none; text-align: start; font-weight: 900;"
       >
         Log out
       </router-link>
@@ -139,7 +142,8 @@
             </div>
             <div class="modal-body">
               <p>
-                Permanantly delete your account? You
+                <div class="row d-flex justify-content-center">❗</div>
+                Are you sure you wan to permanantly delete your account? You
                 will no longer be able to book a course with us
               </p>
             </div>
@@ -167,6 +171,19 @@
   </div>
   <br /><br />
   <br><br>
+  <div class="container">
+    <h3 class=" display-5 fw-bold">My courses</h3>
+    <br><br>
+    <div class="row" v-if="student">
+      <!-- fetch students loop thing -->
+    </div>
+    <div class="row" v-else>
+      <p>Nothing to see here 😶</p>
+      <router-link to="/book" style="text-decoration: none; color: #9a2c0a; font-weight: bold;">Book a course</router-link>
+    </div>
+    <br><br>
+    <br><br>
+  </div>
 </template>
 
 <script>

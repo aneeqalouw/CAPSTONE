@@ -114,7 +114,6 @@ form{
     text-align: start;
 }
 #form{
-    background-color: #F1A778;
     border-radius: 5px;
 }
 input{

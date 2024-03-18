@@ -24,7 +24,4 @@ import SpinnerComp from './components/SpinnerComp.vue';
   }
 </script>
 
-<style src="../src/assets/css/style.css">
-
-
-</style>
+<style src="../src/assets/css/style.css"></style>
