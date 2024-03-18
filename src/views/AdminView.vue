@@ -533,9 +533,6 @@ export default {
     students(){
       return this.$store.state.students
     },
-    loggedInUser() {
-      return cookies.get('LegitUser')?.result
-    }
   },
   methods: {
 

@@ -47,7 +47,7 @@
               <router-link to="/login">Login/register</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/users/:id">Me</router-link>
+              <router-link to="/account">Me</router-link>
             </li>
           </ul>
         </div>
@@ -57,27 +57,8 @@
 </template>
 
 <script>
-// import router from '@/router';
-// import { useCookies } from 'vue3-cookies';
-// const cookies = useCookies()
-
 export default {
-  // computed: {
-  //   users(){
-  //     return this.$store.state.users
-  //   },
-  //   checkUser(){
-  //     if(cookies.result[userRole] != 'admin'){
-  //       alert('Only admins can view this page')
-  //       router.push({name: 'home'})
-  //     }else{
-  //       router.push({name: 'admin'})
-  //     }
-  //   }
-  // },
-  // mounted(){
-  //   this.$store.dispatch("fetchUsers")
-  // }
+
 };
 </script>
 

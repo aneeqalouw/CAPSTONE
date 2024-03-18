@@ -92,14 +92,7 @@ export default createStore({
         let {result} = (await axios.get(`${dbURL}users/${payload.id}`)).data
         if(result) {
           context.commit('setUser', result)
-        }else {
-          sweet({
-            title: 'Retrieving user',
-            text: 'User was not found',
-            icon: "info",
-            timer: 2000
-          }) 
-        }
+         } 
       }catch(e) {
         sweet({
           title: 'Error',
