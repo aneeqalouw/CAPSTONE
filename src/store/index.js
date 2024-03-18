@@ -347,6 +347,7 @@ export default createStore({
     },
     async book(context, payload){
       try{
+        console.log('Book: ', payload);
         let{msg} = (await axios.post(`${dbURL}students/book`, payload)).data
           context.dispatch('fetchStudents')
           sweet({

@@ -7,7 +7,7 @@
       <br />
       <label class="fs-4">Course *</label> <br>
       <div class="row d-flex justify-content-center">
-        <select class="form-select w-50" aria-label="Default select example" name="courseData" id="courseData" v-model="selectedCourse">
+        <select class="form-select w-50" aria-label="Default select example" name="courseData" id="courseData" v-model="payload.courseID">
           <option v-for="course in courses" :key="course.courseID" :value="course.courseID" >
             {{ course.courseName }}
           </option>
@@ -18,14 +18,14 @@
        <!-- ** -->
       <label class=" fs-4">Start date *</label>
       <div class="row d-flex justify-content-center">
-        <select class="form-select w-50" aria-label="Default select example" name="dateData" id="dateData" v-model="selectedDate">
+        <select class="form-select w-50" aria-label="Default select example" name="dateData" id="dateData" v-model="payload.startDate">
           <option v-for="date in dates" :value="date">
             {{ date }}
           </option>
       </select>
       </div>
       <br /><br />
-      <button class="btn w-50 fw-bold" @click.prevent="addStudent" id="btnBook">
+      <button type="button" class="btn w-50 fw-bold" @click.prevent="addingStudent" id="btnBook">
         Book your spot
       </button>
       <br /><br />
@@ -43,13 +43,10 @@ export default {
       dates: [
         '2024/04/04', '2024/15/06', '2024/09/26', '2024/12/02'
       ],
-      selectedCourse: "",
-      selectedDate: "",
       payload: {
-        studID: null,
-        startDate: this.selectedDate,
-        courseID: this.selectedCourse,
-        userID: this.loggedUser?.result.userID,
+        courseID: "",
+        startDate: "",
+        userID: cookies.get('LegitUser')?.result?.userID
       },
     };
   },
@@ -59,19 +56,18 @@ export default {
     },
     courses() {
       return this.$store.state.courses;
-    },
-    loggedUser() {
-      return cookies.get('LegitUser')
     }
   },
   methods: {
-    addStudent() {
+    addingStudent() {
+      console.log('addStudent: ', this.payload);
       this.$store.dispatch("book", this.payload);
     }
    },
   mounted() {
     this.$store.dispatch("fetchCourses");
     this.$store.dispatch("fetchStudents");
+    console.log(this.loggedUser);
   },
 };
 </script>

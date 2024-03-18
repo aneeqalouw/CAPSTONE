@@ -4,6 +4,7 @@
     <h1 class="display-3" id="heading">Course details</h1>
     <br /><br />
     <div class="container" id="courseDetails" v-if="course">
+      <br><br>
       <h4>{{ course.courseName }}</h4>
       <br /><br />
       <p>{{ course.courseDesc }}</p>
@@ -20,6 +21,7 @@
       <router-link to="/book">
         <button class="btn">Book your spot</button>
       </router-link>
+      <br><br>
     </div>
     <div v-else>
       <SpinnerComp></SpinnerComp>
@@ -34,12 +36,12 @@ export default {
     SpinnerComp,
   },
   computed: {
-    courses() {
-      return this.$store.state.courses;
+    course() {
+      return this.$store.state.course;
     },
   },
   mounted() {
-    this.$store.dispatch("fetchCourses");
+    this.$store.dispatch("fetchCourse", this.$route.params);
   },
 };
 </script>
@@ -59,5 +61,8 @@ button {
   border: #9a2c0a solid 0.5px;
   border-radius: 5px;
   /* width: 50rem; */
+}
+ul{
+  list-style-position: inside;
 }
 </style>

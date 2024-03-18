@@ -21,7 +21,7 @@ const routes = [
     component: () => import('../views/CoursesView.vue')
   },
   {
-    path: '/course/:id',
+    path: '/courses/:id',
     name: 'course',
     component: () => import('../views/CourseView.vue')
   },
@@ -36,7 +36,7 @@ const routes = [
     component: () => import('../views/LoginView.vue')
   },
   {
-    path: '/account',
+    path: '/users/:id',
     name: 'account',
     component: () => import('../views/AccountView.vue'),
     beforeEnter(){
@@ -69,12 +69,24 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminView.vue'),
-    beforeEnter(){
-      if(!cookies.get('LegitUser')){
-        router.push({name : 'login'})
-      }
-    }
+    component: () => import('../views/AdminView.vue')
+    // computed: {
+    //   checkUser(){
+    //     cookies.get('LegitUser')
+    //     if(cookies.result.userRole != 'admin'){
+    //       alert('Only admins can view this page')
+    //       router.push({name: 'home'})
+    //     }
+    //   }
+    // },
+    // beforeEnter(){
+    //   this.checkUser()
+    //   if(!cookies.get('LegitUser')){
+    //     router.push({name : 'login'})
+    //   }
+      
+    // },
+
     
   },
   {

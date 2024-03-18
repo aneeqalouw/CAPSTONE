@@ -493,7 +493,7 @@
 <script>
 import SpinnerComp from "@/components/SpinnerComp.vue";
 import { useCookies } from "vue3-cookies";
-const cookies = useCookies()
+const {cookies} = useCookies()
 export default {
   components: {
     SpinnerComp,
@@ -533,6 +533,9 @@ export default {
     students(){
       return this.$store.state.students
     },
+    loggedInUser() {
+      return cookies.get('LegitUser')?.result
+    }
   },
   methods: {
 
