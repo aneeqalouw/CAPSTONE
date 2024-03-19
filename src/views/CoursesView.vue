@@ -65,6 +65,7 @@ export default {
   background: url("https://i.ibb.co/4PG0nyZ/Getty-Images-1361844238-1024x683.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  height: 100%;
   color: white;
 }
 </style>

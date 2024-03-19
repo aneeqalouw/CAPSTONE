@@ -1,7 +1,7 @@
 <template>
-  <div class="row" id="loader">
-    <img src="https://i.postimg.cc/HLKgPCsN/cat-boba.gif" alt="Loading">
-    <p>Loading...</p>
+  <div class="row w-25 mx-auto d-flex justify-content-center" id="loader">
+    <img src="https://i.postimg.cc/HLKgPCsN/cat-boba.gif" alt="Loading" loading="lazy">
+    <p class="lead fw-bold">Loading...</p>
   </div>
 <!-- <div id="preloader">
   <div id="loader"></div>
@@ -14,9 +14,9 @@ export default {};
 
 <style scoped>
 #loader{
-  width: 50px;
-  height: 50px;
-  mix-blend-mode: multiply;
+  width: 35px;
+  height: 35px;
+  mix-blend-mode: normal;
 }
 /* #preloader {
     position: fixed;

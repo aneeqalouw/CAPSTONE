@@ -41,7 +41,7 @@
               <router-link to="/contact">Contact us</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/admin">Admin</router-link>
+              <router-link to="/admin" @click="checkUser">Admin</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/login">Login/register</router-link>
@@ -62,11 +62,26 @@
 </template>
 
 <script>
-// import { useCookies } from "vue3-cookies";
-// const  {cookies}  = useCookies();
-// let role = cookies.get('userRole')
-export default {
+import router from "@/router";
+import { useCookies } from "vue3-cookies";
+const  {cookies}  = useCookies();
 
+export default {
+  data(){
+    return {
+      role: cookies.get('userRole')
+    }
+  },
+methods: {
+  checkUser(){
+    if(this.role != 'admin'){
+      alert('Only admins may view this page')
+      router.push({name: 'home'})
+    }else{
+      router.push({name: 'admin'})
+    }
+  }
+}
 };
 </script>
 
@@ -98,4 +113,7 @@ nav a.router-link-exact-active {
 #loginbtn:hover {
   background-color: #9a2c0a;
 }
+/* #adminLink{
+  display: none;
+} */
 </style>
