@@ -8,7 +8,7 @@
     <!-- **courses -->
     <div class="container ">
       <div class="row">
-        <h4>Courses</h4>
+        <h4 class=" fw-bold">Courses</h4>
         <br /><br />
         <div class="row">
           <!-- Button trigger modal -->
@@ -203,7 +203,7 @@
       <br /><br />
       <div class="container">
         <div class="row">
-          <h4>Users</h4>
+          <h4 class=" fw-bold">Users</h4>
         </div>
         <br /><br />
         <div class="row">
@@ -241,32 +241,32 @@
                     type="text"
                     placeholder="userID"
                     v-model="userPayload.userID"
-                  />
+                  /> <br /> <br>
                   <input
                     type="text"
                     placeholder="firstName"
                     v-model="userPayload.firstName"
-                  />
+                  /> <br /> <br>
                   <input
                     type="text"
                     placeholder="lastName"
                     v-model="userPayload.lastName"
-                  />
+                  /> <br /> <br>
                   <input
                     type="text"
                     placeholder="email"
                     v-model="userPayload.email"
-                  />
+                  /> <br /> <br>
                   <input
                     type="password"
                     placeholder="password"
                     v-model="userPayload.pwd"
-                  />
+                  /> <br /> <br>
                   <input
                     type="text"
                     placeholder="role"
                     v-model="userPayload.userRole"
-                  />
+                  /> <br /> <br>
                 </div>
                 <div class="modal-footer">
                   <button
@@ -344,27 +344,32 @@
                             type="text"
                             placeholder="userID"
                             v-model="userPayload.userID"
-                          />
+                          /> <br><br>
                           <input
                             type="text"
                             placeholder="firstName"
                             v-model="userPayload.firstName"
-                          />
+                          /> <br><br>
                           <input
                             type="text"
                             placeholder="lastName"
                             v-model="userPayload.lastName"
-                          />
+                          /> <br><br>
                           <input
                             type="text"
                             placeholder="email"
                             v-model="userPayload.email"
-                          />
+                          /> <br><br>
                           <input
                             type="password"
                             placeholder="password"
                             v-model="userPayload.pwd"
-                          />
+                          /> <br><br>
+                          <input
+                            type="text"
+                            placeholder="userRole"
+                            v-model="userPayload.userRole"
+                          /> <br><br>
                         </div>
                         <div class="modal-footer">
                           <button
@@ -402,8 +407,9 @@
       <!-- **students -->
       <div class="container">
         <div class="row">
-          <h4>Students</h4>
+          <h4 class="fw-bold">Students</h4>
         </div>
+        <br><br>
         <div class="row">
           <!-- Button trigger modal -->
           <button
@@ -464,6 +470,7 @@
                 <th>studID</th>
                 <th>userID</th>
                 <th>courseID</th>
+                <th>courseName</th>
                 <th>startDate</th>
                 <th>Action</th>
               </tr>
@@ -473,6 +480,7 @@
                 <td>{{ student.studID }}</td>
                 <td>{{ student.userID }}</td>
                 <td>{{ student.courseID }}</td>
+                <td>{{ student.courseName }}</td>
                 <td>{{ student.startDate }}</td>
                 <td>
                   <button class="btn btn-danger" @click="deleteStudent(student.studID)">Remove</button>
@@ -486,6 +494,10 @@
 
         </div>
       </div>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
     </div>
   </div>
 </template>

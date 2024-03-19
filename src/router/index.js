@@ -46,11 +46,6 @@ const routes = [
     }
   },
   {
-    path: '/updateaccount',
-    name: 'updateaccount',
-    component: () => import('../views/UpdateAccount.vue')
-  },
-  {
     path: '/book',
     name: 'book',
     component: () => import('../views/BookView.vue'),
@@ -73,7 +68,10 @@ const routes = [
     beforeEnter(){
       if(!cookies.get('LegitUser')){
         router.push({name : 'login'})
-      } 
+      } //else if(cookies.get('userRole')!= 'admin'){
+      //   alert('Only admins may view this page')
+      //   router.push({name: 'home'})
+      // }
     },
 
     

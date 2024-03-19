@@ -5,6 +5,7 @@ import { useCookies } from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
 import AuthenticateUser from '@/service/AuthenticateUser'
+import { Button } from 'bootstrap'
 const dbURL = 'https://capstone-1-o3t8.onrender.com/'
 
 
@@ -147,6 +148,8 @@ export default createStore({
        const {msg, token, result} = (await axios.post(`${dbURL}users/login`, payload)).data 
        if(result){
         context.commit('setUser', {msg, result})
+        cookies.set('userID', result.userID )
+        cookies.set('userRole', result.userRole)
         cookies.set('LegitUser', {
           msg, token, result
         })
@@ -295,9 +298,10 @@ export default createStore({
         }) 
       }
     },
-    async fetchStudent(context, payload) {
+    async fetchStudent(context) {
+      console.log(cookies.get('userID'))
       try{
-        let {result} = (await axios.get(`${dbURL}students/${payload.id}`)).data
+        let {result} = (await axios.get(`${dbURL}students/${cookies.get('userID')}`)).data
         if(result) {
           context.commit('setStudent', result)
         }else {
@@ -340,9 +344,8 @@ export default createStore({
     },
     async book(context, payload){
       try{
-        console.log('Book: ', payload);
         let{msg} = (await axios.post(`${dbURL}students/book`, payload)).data
-          context.dispatch('fetchStudents')
+          // context.dispatch('fetchStudents')
           sweet({
             title: 'Book',
             text: msg,

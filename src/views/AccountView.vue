@@ -35,6 +35,8 @@
       </div>
     </div>
     <br /><br />
+
+    
     <!-- **EDIT ACC MODAL -->
     <div class="row ms-auto my-3">
       <!-- Button trigger modal -->
@@ -101,6 +103,9 @@
         style="text-decoration: none; text-align: start; font-weight: 900;"
       >
         Log out
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 21C4.45 21 3.97933 20.8043 3.588 20.413C3.19667 20.0217 3.00067 19.5507 3 19V5C3 4.45 3.196 3.97933 3.588 3.588C3.98 3.19667 4.45067 3.00067 5 3H12V5H5V19H12V21H5ZM16 17L14.625 15.55L17.175 13H9V11H17.175L14.625 8.45L16 7L21 12L16 17Z" fill="#D71616"/>
+        </svg>
       </router-link>
     </div>
     <br><br>
@@ -171,11 +176,57 @@
   </div>
   <br /><br />
   <br><br>
+
+
+  <!-- **my courses -->
   <div class="container">
     <h3 class=" display-5 fw-bold">My courses</h3>
     <br><br>
     <div class="row" v-if="student">
-      <!-- fetch students loop thing -->
+      <div class="row table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Course</th>
+              <th>Start date</th>
+              <th>Cancel</th>
+            </tr>
+          </thead>
+          <tbody v-if="student">
+            <tr>
+              <td>{{ student.studID }}</td>
+              <td>{{ student.courseName }}</td>
+              <td>{{ student.startDate }}</td>
+              <td>
+                <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel">
+                    Cancel booking
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="cancel" tabindex="-1" aria-labelledby="cancel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="cancel">Cancel booking?</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row d-flex justify-content-center">❗</div>
+                          <p>Are you sure you want to cancel this booking?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-danger" @click="cancelBooking(student.studID)">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="row" v-else>
       <p>Nothing to see here 😶</p>
@@ -193,7 +244,6 @@ export default {
   data(){
     return {
       payload: {
-        // userID: "",
         firstName: "",
         lastName: "",
         email: ""
@@ -204,6 +254,9 @@ export default {
     user() {
       return this.$store.state.user || cookies.get('LegitUser')?.result;
     },
+    student(){
+      return this.$store.state.student
+    }
   },
   methods: {
     deletingUser(userID) {
@@ -211,10 +264,13 @@ export default {
     },
     updatingUser() {
       this.$store.dispatch("updateUser", this.payload);
+    },
+    cancelBooking(studID){
+      this.$store.dispatch("cancel", {id: studID})
     }
   },
   mounted() {
-    this.$store.dispatch("fetchUser", this.$route.params);
+    this.$store.dispatch("fetchStudent");
   },
 };
 </script>
