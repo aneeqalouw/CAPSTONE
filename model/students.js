@@ -3,8 +3,9 @@ import { connection as db } from "../config/index.js";
 class Students {
   fetchStudents(req, res) {
     const qry = `
-                SELECT studID, courseID, courseName, startDate, userID
-                FROM Students;
+                SELECT Students.studID, Students.courseID,  Students.startDate, Courses.courseName
+                FROM Students
+                INNER JOIN Courses ON Students.courseID = Courses.courseID;
             `;
     db.query(qry, (err, results) => {
       if (err) throw err;
@@ -16,9 +17,10 @@ class Students {
   }
   fetchStudent(req, res) {
     const qry = `
-                SELECT studID, courseID, courseName, startDate, userID
+                SELECT Students.studID, Students.courseID,  Students.startDate, Courses.courseName
                 FROM Students
-                WHERE studID =${req.params.id};
+                INNER JOIN Courses ON Students.courseID = Courses.courseID;
+                WHERE studID = ${req.params.id};
             `;
     db.query(qry, (err, result) => {
       if (err) throw err;
@@ -60,13 +62,6 @@ class Students {
       }
     });
   }
-  // studInfo(req, res){
-  //   const qry = `
-  //     SELECT Students.studID, Users.userID, Students.courseName, Students.startDate
-  //     FROM Students
-  //     INNER JOIN Users on Students.userID = Users.userID;
-  //   `
-  // }
 }
 
 export{
