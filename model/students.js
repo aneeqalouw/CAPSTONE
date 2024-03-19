@@ -3,7 +3,7 @@ import { connection as db } from "../config/index.js";
 class Students {
   fetchStudents(req, res) {
     const qry = `
-                SELECT studID, courseID, startDate, userID
+                SELECT studID, courseID, courseName, startDate, userID
                 FROM Students;
             `;
     db.query(qry, (err, results) => {
@@ -16,7 +16,7 @@ class Students {
   }
   fetchStudent(req, res) {
     const qry = `
-                SELECT studID, courseID, startDate, userID
+                SELECT studID, courseID, courseName, startDate, userID
                 FROM Students
                 WHERE studID =${req.params.id};
             `;
@@ -60,6 +60,13 @@ class Students {
       }
     });
   }
+  // studInfo(req, res){
+  //   const qry = `
+  //     SELECT Students.studID, Users.userID, Students.courseName, Students.startDate
+  //     FROM Students
+  //     INNER JOIN Users on Students.userID = Users.userID;
+  //   `
+  // }
 }
 
 export{
