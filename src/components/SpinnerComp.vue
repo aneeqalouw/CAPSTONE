@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" id="loader">
     <img src="https://i.postimg.cc/HLKgPCsN/cat-boba.gif" alt="Loading">
     <p>Loading...</p>
   </div>
@@ -13,6 +13,11 @@ export default {};
 </script>
 
 <style scoped>
+#loader{
+  width: 50px;
+  height: 50px;
+  mix-blend-mode: multiply;
+}
 /* #preloader {
     position: fixed;
     top: 0;
