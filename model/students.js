@@ -20,7 +20,7 @@ class Students {
                 SELECT Students.studID, Students.courseID, Students.userID,  Students.startDate, Courses.courseName
                 FROM Students
                 INNER JOIN Courses ON Students.courseID = Courses.courseID
-                WHERE studID = ${req.params.id};
+                WHERE userID = '${req.params.id}';
             `;
     db.query(qry, (err, result) => {
       if (err) throw err;
