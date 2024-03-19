@@ -229,7 +229,7 @@
       </div>
     </div>
     <div class="row" v-else>
-      <p>Nothing to see here 😶</p>
+      <p>Nothing to see here 😶</p> <br>
       <router-link to="/book" style="text-decoration: none; color: #9a2c0a; font-weight: bold;">Book a course</router-link>
     </div>
     <br><br>

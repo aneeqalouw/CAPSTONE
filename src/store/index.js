@@ -125,7 +125,6 @@ export default createStore({
     async deleteUser(context, payload) {
       try{
         let {msg} = await axios.delete(`${dbURL}users/deleteUser/${payload.id}`)
-        if(msg) {
           context.dispatch('fetchUsers')
           sweet({
             title: 'Delete user',
@@ -133,7 +132,6 @@ export default createStore({
             icon: "success",
             timer: 2000
           }) 
-        }
       }catch(e) {
         sweet({
           title: 'Error',
@@ -304,18 +302,11 @@ export default createStore({
         let {result} = (await axios.get(`${dbURL}students/${cookies.get('userID')}`)).data
         if(result) {
           context.commit('setStudent', result)
-        }else {
-          sweet({
-            title: 'Retrieving student',
-            text: 'Student was not found',
-            icon: "info",
-            timer: 2000
-          }) 
         }
       }catch(e) {
         sweet({
           title: 'Error',
-          text: 'Student was not found.',
+          text: 'Error when retrieving booking info',
           icon: "error",
           timer: 2000
         }) 
@@ -324,15 +315,13 @@ export default createStore({
     async cancel(context, payload) {
       try{
         let {msg} = await axios.delete(`${dbURL}students/cancel/${payload.id}`)
-        if(msg) {
-          context.dispatch('fetchUsers')
+          context.dispatch('fetchStudents')
           sweet({
             title: 'Cancel booking',
-            text: msg,
+            text: 'Booking successfully cancelled',
             icon: "success",
             timer: 2000
           }) 
-        }
       }catch(e) {
         sweet({
           title: 'Error',
