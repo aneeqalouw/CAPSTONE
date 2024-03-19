@@ -19,7 +19,7 @@ class Students {
     const qry = `
                 SELECT Students.studID, Students.courseID,  Students.startDate, Courses.courseName
                 FROM Students
-                INNER JOIN Courses ON Students.courseID = Courses.courseID;
+                INNER JOIN Courses ON Students.courseID = Courses.courseID
                 WHERE studID = ${req.params.id};
             `;
     db.query(qry, (err, result) => {
