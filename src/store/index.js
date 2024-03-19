@@ -156,7 +156,7 @@ export default createStore({
           title: msg,
           text: `Welcome back, 
           ${result?.firstName} ${result?.lastName}`,
-          icon: "success",
+          imageUrl: 'https://i.postimg.cc/QCgQF0W8/cheer-cat.gif',
           timer: 2000
         })
           router.push({name: 'home'})
@@ -338,7 +338,7 @@ export default createStore({
           sweet({
             title: 'Book',
             text: msg,
-            icon: "success",
+            imageUrl: 'https://i.postimg.cc/QCgQF0W8/cheer-cat.gif',
             timer: 2000
           })
       }catch(e) {

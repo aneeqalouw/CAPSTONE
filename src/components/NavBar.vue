@@ -41,7 +41,7 @@
               <router-link to="/contact">Contact us</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/admin" v-if="role !== 'admin'">Admin</router-link>
+              <router-link to="/admin">Admin</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/login">Login/register</router-link>
@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import { useCookies } from "vue3-cookies";
-const  {cookies}  = useCookies();
-let role = cookies.get('userRole')
+// import { useCookies } from "vue3-cookies";
+// const  {cookies}  = useCookies();
+// let role = cookies.get('userRole')
 export default {
 
 };
