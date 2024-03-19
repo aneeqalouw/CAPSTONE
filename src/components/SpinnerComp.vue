@@ -1,7 +1,11 @@
 <template>
-<div id="preloader">
+  <div class="row">
+    <img src="https://i.postimg.cc/HLKgPCsN/cat-boba.gif" alt="Loading">
+    <p>Loading...</p>
+  </div>
+<!-- <div id="preloader">
   <div id="loader"></div>
-</div>
+</div> -->
 </template>
 
 <script>
@@ -9,7 +13,7 @@ export default {};
 </script>
 
 <style scoped>
-#preloader {
+/* #preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -79,5 +83,5 @@ export default {};
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
-}
+} */
 </style>

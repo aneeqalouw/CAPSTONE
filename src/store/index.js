@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-import sweet from 'sweetalert'
+import Swal from 'sweetalert2'
 import { useCookies } from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
@@ -48,24 +48,16 @@ export default createStore({
         let {msg, token} = (await axios.post(`${dbURL}users/register`, payload)).data
         if(token) {
           context.dispatch('fetchUsers')
-          sweet({
+          Swal.fire({
             title: 'Registration',
             text: msg,
             icon: "success",
             timer: 2000
           }) 
           router.push({name: 'login'})
-        }else {
-          sweet({
-            title: 'Error',
-            text: 'There was an error when trying to register',
-            icon: "error",
-            timer: 2000
-          }) 
-          router.push({name: 'register'})
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'There was an error trying to register',
           icon: "error",
@@ -80,7 +72,7 @@ export default createStore({
           context.commit('setUsers', results)
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to retrieve users',
           icon: "error",
@@ -95,7 +87,7 @@ export default createStore({
           context.commit('setUser', result)
          } 
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'User was not found.',
           icon: "error",
@@ -107,14 +99,14 @@ export default createStore({
       try{
         let {msg} = (await axios.patch(`${dbURL}users/updateUser/${payload.userID}`, payload)).data
           context.dispatch('fetchUsers')
-          sweet({
+          Swal.fire({
             title: 'Update User',
             text: msg,
             icon: "success",
             timer: 2000
           })  
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to update user',
           icon: "error",
@@ -126,14 +118,14 @@ export default createStore({
       try{
         let {msg} = await axios.delete(`${dbURL}users/deleteUser/${payload.id}`)
           context.dispatch('fetchUsers')
-          sweet({
+          Swal.fire({
             title: 'Delete user',
             text: msg,
             icon: "success",
             timer: 2000
           }) 
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to delete user',
           icon: "error",
@@ -152,16 +144,16 @@ export default createStore({
           msg, token, result
         })
         AuthenticateUser.applyToken(token)
-        sweet({
-          title: msg,
-          text: `Welcome back, 
-          ${result?.firstName} ${result?.lastName}`,
-          imageUrl: 'https://i.postimg.cc/QCgQF0W8/cheer-cat.gif',
-          timer: 2000
+        Swal.fire({
+          title: `Hi 
+          ${result?.firstName}!`,
+          text: `Welcome back`,
+          imageUrl: 'https://i.postimg.cc/66gvLsh8/cheer-cat.gif',
+          timer: 3000
         })
           router.push({name: 'home'})
         }else {
-          sweet({
+          Swal.fire({
             title: 'info',
             text: msg,
             icon: "info",
@@ -169,7 +161,7 @@ export default createStore({
           })
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to login.',
           icon: "error",
@@ -189,7 +181,7 @@ export default createStore({
           context.commit('setCourses', results)
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to retrieve courses',
           icon: "error",
@@ -203,7 +195,7 @@ export default createStore({
         if(result) {
           context.commit('setCourse', result)
         }else {
-          sweet({
+          Swal.fire({
             title: 'Retrieving course',
             text: 'Course was not found',
             icon: "info",
@@ -211,7 +203,7 @@ export default createStore({
           }) 
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Course was not found.',
           icon: "error",
@@ -223,7 +215,7 @@ export default createStore({
       try{
         let{msg} = (await axios.post(`${dbURL}courses/addCourse`, payload)).data
           context.dispatch('fetchCourses')
-          sweet({
+          Swal.fire({
             title: 'Add course',
             text: msg,
             icon: "success",
@@ -231,7 +223,7 @@ export default createStore({
 
           })
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to add course',
           icon: "error",
@@ -243,7 +235,7 @@ export default createStore({
       try{   
         let {msg} = (await axios.patch(`${dbURL}courses/updateCourse/${payload.courseID}`, payload)).data  
           context.dispatch('fetchCourses')
-          sweet({
+          Swal.fire({
             title: 'Update course',
             text: msg,
             icon: "success",
@@ -251,7 +243,7 @@ export default createStore({
           }) 
         
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to update course',
           icon: "error",
@@ -263,14 +255,14 @@ export default createStore({
       try{
         let {msg} = (await axios.delete(`${dbURL}courses/deleteCourse/${payload.courseID}`)).data
           context.dispatch('fetchCourses')
-          sweet({
+          Swal.fire({
             title: 'Delete course',
             text: msg,
             icon: "success",
             timer: 2000
           }) 
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to delete course',
           icon: "error",
@@ -288,7 +280,7 @@ export default createStore({
           context.commit('setStudents', results)
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to retrieve students',
           icon: "error",
@@ -297,14 +289,13 @@ export default createStore({
       }
     },
     async fetchStudent(context) {
-      console.log(cookies.get('userID'))
       try{
         let {result} = (await axios.get(`${dbURL}students/${cookies.get('userID')}`)).data
         if(result) {
           context.commit('setStudent', result)
         }
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Error when retrieving booking info',
           icon: "error",
@@ -316,14 +307,14 @@ export default createStore({
       try{
         let {msg} = await axios.delete(`${dbURL}students/cancel/${payload.id}`)
           context.dispatch('fetchStudents')
-          sweet({
+          Swal.fire({
             title: 'Cancel booking',
             text: 'Booking successfully cancelled',
             icon: "success",
             timer: 2000
           }) 
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'Failed to cancel booking',
           icon: "error",
@@ -335,14 +326,14 @@ export default createStore({
       try{
         let{msg} = (await axios.post(`${dbURL}students/book`, payload)).data
           // context.dispatch('fetchStudents')
-          sweet({
+          Swal.fire({
             title: 'Book',
             text: msg,
-            imageUrl: 'https://i.postimg.cc/QCgQF0W8/cheer-cat.gif',
-            timer: 2000
+            imageUrl: 'https://i.postimg.cc/66gvLsh8/cheer-cat.gif',
+            timer: 3000
           })
       }catch(e) {
-        sweet({
+        Swal.fire({
           title: 'Error',
           text: 'There was an error when trying to book',
           icon: "error",
