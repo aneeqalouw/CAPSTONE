@@ -41,7 +41,7 @@
               <router-link to="/contact">Contact us</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/admin" @click="checkUser">Admin</router-link>
+              <router-link to="/admin">Admin</router-link>             
             </li>
             <li class="nav-item">
               <router-link to="/login">Login/register</router-link>
@@ -55,6 +55,7 @@
               </router-link>
             </li>
           </ul>
+          <!-- @click="checkUser" -->
         </div>
       </div>
     </nav>

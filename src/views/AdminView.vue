@@ -397,7 +397,7 @@
               </tr>
             </tbody>
             <div v-else>
-              <SpinnerComp></SpinnerComp>
+              <SpinnerComp style="color: #F1A778;"></SpinnerComp>
             </div>
           </table>
         </div>

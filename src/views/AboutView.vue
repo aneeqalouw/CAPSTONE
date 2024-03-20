@@ -21,11 +21,11 @@
       <p>
         At AA, we offer 6 TEFL courses, each included with a language module depending on the
         country you wish to work in. <br>
-        These countries are:
+        These countries include:
       </p>
       <ul class="d-block justify-content-center">
         <li>Japan (Japanese module)</li>
-        <li>China (Mandarin module)</li>
+        <li>China and Taiwan (Mandarin module)</li>
         <li>South Korea (Korean module)</li>
         <li>Thailand (Thai module)</li>
         <li>Mexico, Costa Rica and Spain (Spanish module)</li>
