@@ -174,6 +174,9 @@
     </div>
     <br /><br />
   </div>
+  <div class="row" v-else>
+    <SpinnerComp></SpinnerComp>
+  </div>
   <br /><br />
   <br><br>
 
@@ -240,7 +243,11 @@
 <script>
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
+import SpinnerComp from "@/components/SpinnerComp.vue";
 export default {
+  components: {
+    SpinnerComp
+  },
   data(){
     return {
       payload: {
@@ -285,6 +292,7 @@ export default {
 #account {
   border: solid #9a2c0a 0.5px;
   border-radius: 5px;
+  padding: 10px;
 }
 input {
   background: transparent;

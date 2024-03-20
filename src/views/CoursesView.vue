@@ -25,6 +25,7 @@
       <SpinnerComp></SpinnerComp>
     </div>
     <br><br>
+    <br><br>
   </div>
 </template>
 

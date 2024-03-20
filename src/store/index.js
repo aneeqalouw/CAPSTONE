@@ -136,6 +136,7 @@ export default createStore({
     async login(context, payload) {
       try{
        const {msg, token, result} = (await axios.post(`${dbURL}users/login`, payload)).data 
+       console.log(result);
        if(result){
         context.commit('setUser', {msg, result})
         cookies.set('userID', result.userID )
