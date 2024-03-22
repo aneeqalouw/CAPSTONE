@@ -20,7 +20,6 @@
       <br />
       <label class="me-auto">Create a password *</label>
       <input type="password" placeholder="Must be at least 8 characters" required v-model="payload.pwd" />
-      <label class="me-auto" style="display: none;">Role</label>
       <input type="text" :value="payload.userRole" style="display: none;"/>
       <br />
       <br />

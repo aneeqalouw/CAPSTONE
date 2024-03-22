@@ -77,6 +77,8 @@
               <input type="text" :placeholder="user.lastName" v-model="payload.lastName">
               <p class="lead">Email</p>
               <input type="text" :placeholder="user.email" v-model="payload.email">
+              <p class="lead">Email</p>
+              <input type="password" :placeholder="user.pwd" v-model="payload.pwd">
             </div>
             <div class="modal-footer">
               <button
@@ -89,32 +91,6 @@
               <button type="button" class="btn btn-success" @click.prevent="updatingUser(payload)">
                 Save changes
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- **update pwd modal -->
-    <div class="row ms-auto my-5">
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#updatePwd">
-        Update password
-      </button>
-  
-      <!-- Modal -->
-      <div class="modal fade" id="updatePwd" tabindex="-1" aria-labelledby="updatePwd" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="updatePwd">Update your password</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <input type="password" placeholder="New password" v-model="payload.pwd">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-dark">Save password</button>
             </div>
           </div>
         </div>
@@ -263,6 +239,12 @@
     </div>
     <br><br>
     <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
   </div>
 </template>
 
@@ -278,16 +260,17 @@ export default {
   data(){
     return {
       payload: {
+        userID: cookies.get('LegitUser')?.result?.userID,
         firstName: "",
         lastName: "",
         email: "",
         pwd: ""
-      }
+      },
     }
   },
   computed: {
     user() {
-      return this.$store.state.user || cookies.get('LegitUser')?.result;
+      return cookies.get('LegitUser')?.result;
     },
     student(){
       return this.$store.state.student
@@ -296,13 +279,9 @@ export default {
   methods: {
     deletingUser(userID) {
       this.$store.dispatch("deleteUser", { id: userID });
-      router.push({name: 'logout'})
-      router.push('')
     },
     updatingUser() {
       this.$store.dispatch("updateUser", this.payload);
-      // cookies.set('userEmail', this.payload.email)
-      // cookies.set
     },
     cancelBooking(studID){
       this.$store.dispatch("cancel", {id: studID})

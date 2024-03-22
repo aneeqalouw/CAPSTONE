@@ -98,6 +98,9 @@ export default createStore({
     async updateUser(context, payload) {
       try{
         let {msg} = (await axios.patch(`${dbURL}users/updateUser/${payload.userID}`, payload)).data
+        const currentData = cookies.get('LegitUser')
+        const updatedData = Object.assign({}, {msg},{token: currentData.token}, {result: payload})
+        cookies.set('LegitUser', updatedData)
           context.dispatch('fetchUsers')
           Swal.fire({
             title: 'Update User',
@@ -108,7 +111,7 @@ export default createStore({
       }catch(e) {
         Swal.fire({
           title: 'Error',
-          text: 'Failed to update user',
+          text: e.message,
           icon: "error",
           timer: 2000
         }) 
@@ -116,7 +119,7 @@ export default createStore({
     },
     async deleteUser(context, payload) {
       try{
-        let {msg} = await axios.delete(`${dbURL}users/deleteUser/${payload.id}`)
+        let {msg} = (await axios.delete(`${dbURL}users/deleteUser/${payload.id}`)).data
           context.dispatch('fetchUsers')
           Swal.fire({
             title: 'Delete account',
@@ -124,10 +127,15 @@ export default createStore({
             icon: "success",
             timer: 2000
           }) 
+          router.push({name: 'home'})
+          cookies.remove('LegitUser')
+          cookies.remove('userID')
+          cookies.remove('userRole')
+          location.reload()
       }catch(e) {
         Swal.fire({
           title: 'Error',
-          text: 'Failed to delete user',
+          text: 'Failed to delete account',
           icon: "error",
           timer: 2000
         }) 
@@ -136,7 +144,6 @@ export default createStore({
     async login(context, payload) {
       try{
        const {msg, token, result} = (await axios.post(`${dbURL}users/login`, payload)).data 
-       console.log(result);
        if(result){
         context.commit('setUser', {msg, result})
         cookies.set('userID', result.userID )
@@ -145,6 +152,7 @@ export default createStore({
           msg, token, result
         })
         AuthenticateUser.applyToken(token)
+
         Swal.fire({
           title: `Hi 
           ${result?.firstName}!`,
@@ -326,7 +334,7 @@ export default createStore({
     async book(context, payload){
       try{
         let{msg} = (await axios.post(`${dbURL}students/book`, payload)).data
-          // context.dispatch('fetchStudents')
+          context.dispatch('fetchStudents')
           Swal.fire({
             title: 'Book',
             text: msg,

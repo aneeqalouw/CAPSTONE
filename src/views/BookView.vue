@@ -28,7 +28,9 @@
       <button type="button" class="btn w-50 fw-bold" @click.prevent="addingStudent" id="btnBook">
         Book your spot
       </button>
-      <br /><br />
+      <br><br>
+      <br><br>
+      <p class=" fw-light">*You may only book once, as you can only take one course at a time. Please do not attempt to book more than once on your account</p>
       <br><br>
     </div>
   </div>

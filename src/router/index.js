@@ -83,7 +83,9 @@ const routes = [
     component: ()=> import('../views/HomeView.vue'),
     beforeEnter(){
       cookies.remove('LegitUser')
-      router.push({name: 'home'})
+      cookies.remove('userID')
+      cookies.remove('userRole')
+      router.push({name: 'login'})
     }
   }
 ]
