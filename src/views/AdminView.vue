@@ -361,11 +361,6 @@
                             v-model="userPayload.email"
                           /> <br><br>
                           <input
-                            type="password"
-                            placeholder="password"
-                            v-model="userPayload.pwd"
-                          /> <br><br>
-                          <input
                             type="text"
                             placeholder="userRole"
                             v-model="userPayload.userRole"
@@ -524,7 +519,6 @@ export default {
         firstName: "",
         lastName: "",
         email: "",
-        pwd: "",
         userRole: "",
       },
       studentPayload: {

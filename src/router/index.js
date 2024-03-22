@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { useCookies } from 'vue3-cookies'
 import { computed } from 'vue'
+import Swal from 'sweetalert2'
 const {cookies} = useCookies()
 
 const routes = [
@@ -81,9 +82,8 @@ const routes = [
     name: 'logout',
     component: ()=> import('../views/HomeView.vue'),
     beforeEnter(){
-      router.push({name: 'home'})
       cookies.remove('LegitUser')
-      window.location.reload
+      router.push({name: 'home'})
     }
   }
 ]

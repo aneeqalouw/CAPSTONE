@@ -46,7 +46,7 @@
         data-bs-toggle="modal"
         data-bs-target="#editAccount"
       >
-        Edit
+        Edit account
       </button>
 
       <!-- Modal -->
@@ -89,6 +89,32 @@
               <button type="button" class="btn btn-success" @click.prevent="updatingUser(payload)">
                 Save changes
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- **update pwd modal -->
+    <div class="row ms-auto my-5">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#updatePwd">
+        Update password
+      </button>
+  
+      <!-- Modal -->
+      <div class="modal fade" id="updatePwd" tabindex="-1" aria-labelledby="updatePwd" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="updatePwd">Update your password</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="password" placeholder="New password" v-model="payload.pwd">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-dark">Save password</button>
             </div>
           </div>
         </div>
@@ -254,7 +280,8 @@ export default {
       payload: {
         firstName: "",
         lastName: "",
-        email: ""
+        email: "",
+        pwd: ""
       }
     }
   },
