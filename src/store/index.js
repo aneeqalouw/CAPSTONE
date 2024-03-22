@@ -119,8 +119,8 @@ export default createStore({
         let {msg} = await axios.delete(`${dbURL}users/deleteUser/${payload.id}`)
           context.dispatch('fetchUsers')
           Swal.fire({
-            title: 'Delete user',
-            text: msg,
+            title: 'Delete account',
+            text: 'Account successfully deleted',
             icon: "success",
             timer: 2000
           }) 

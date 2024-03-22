@@ -244,6 +244,7 @@
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
 import SpinnerComp from "@/components/SpinnerComp.vue";
+import router from "@/router";
 export default {
   components: {
     SpinnerComp
@@ -268,9 +269,13 @@ export default {
   methods: {
     deletingUser(userID) {
       this.$store.dispatch("deleteUser", { id: userID });
+      router.push({name: 'logout'})
+      router.push('')
     },
     updatingUser() {
       this.$store.dispatch("updateUser", this.payload);
+      // cookies.set('userEmail', this.payload.email)
+      // cookies.set
     },
     cancelBooking(studID){
       this.$store.dispatch("cancel", {id: studID})
@@ -278,6 +283,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("fetchStudent");
+    
   },
 };
 </script>

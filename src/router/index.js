@@ -68,10 +68,10 @@ const routes = [
     beforeEnter(){
       if(!cookies.get('LegitUser')){
         router.push({name : 'login'})
-      } //else if(cookies.get('userRole')!= 'admin'){
-      //   alert('Only admins may view this page')
-      //   router.push({name: 'home'})
-      // }
+      }else if(cookies.get('userRole') !== 'admin'){
+       alert('Only admins may view this page')
+       router.push({name: 'home'})
+      }
     },
 
     
@@ -79,9 +79,9 @@ const routes = [
   {
     path: '/logout',
     name: 'logout',
-    component: ()=> import('../views/LoginView.vue'),
+    component: ()=> import('../views/HomeView.vue'),
     beforeEnter(){
-      router.push({name: 'login'})
+      router.push({name: 'home'})
       cookies.remove('LegitUser')
       window.location.reload
     }

@@ -63,26 +63,8 @@
 </template>
 
 <script>
-import router from "@/router";
-import { useCookies } from "vue3-cookies";
-const  {cookies}  = useCookies();
-
 export default {
-  data(){
-    return {
-      role: cookies.get('userRole')
-    }
-  },
-methods: {
-  checkUser(){
-    if(this.role != 'admin'){
-      alert('Only admins may view this page')
-      router.push({name: 'home'})
-    }else{
-      router.push({name: 'admin'})
-    }
-  }
-}
+
 };
 </script>
 
