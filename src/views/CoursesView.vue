@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="col">
-            <p class="lead fs-5">{{ course.courseDuration }}</p>
+            <p class="lead fs-5 my-3">{{ course.courseDuration }}</p>
             R {{ course.coursePrice }}
         </div>
       </div>
