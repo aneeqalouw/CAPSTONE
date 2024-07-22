@@ -20,6 +20,7 @@
       <br />
       <label class="me-auto">Create a password *</label>
       <input type="password" placeholder="Must be at least 8 characters" required v-model="payload.pwd" />
+      <input type="text" :value="payload.userRole" style="display: none;"/>
       <br />
       <br />
       <div>
@@ -52,7 +53,7 @@ export default {
             lastName: "",
             email: "",
             pwd: "",
-            userRole: "",
+            userRole: "user",
         }
     }
   },

@@ -46,7 +46,7 @@
         data-bs-toggle="modal"
         data-bs-target="#editAccount"
       >
-        Edit
+        Edit account
       </button>
 
       <!-- Modal -->
@@ -77,6 +77,8 @@
               <input type="text" :placeholder="user.lastName" v-model="payload.lastName">
               <p class="lead">Email</p>
               <input type="text" :placeholder="user.email" v-model="payload.email">
+              <p class="lead">Email</p>
+              <input type="password" :placeholder="user.pwd" v-model="payload.pwd">
             </div>
             <div class="modal-footer">
               <button
@@ -237,6 +239,12 @@
     </div>
     <br><br>
     <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
   </div>
 </template>
 
@@ -244,6 +252,7 @@
 import { useCookies } from "vue3-cookies";
 const { cookies } = useCookies();
 import SpinnerComp from "@/components/SpinnerComp.vue";
+import router from "@/router";
 export default {
   components: {
     SpinnerComp
@@ -251,15 +260,17 @@ export default {
   data(){
     return {
       payload: {
+        userID: cookies.get('LegitUser')?.result?.userID,
         firstName: "",
         lastName: "",
-        email: ""
-      }
+        email: "",
+        pwd: ""
+      },
     }
   },
   computed: {
     user() {
-      return this.$store.state.user || cookies.get('LegitUser')?.result;
+      return cookies.get('LegitUser')?.result;
     },
     student(){
       return this.$store.state.student
@@ -278,6 +289,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("fetchStudent");
+    
   },
 };
 </script>

@@ -23,7 +23,7 @@
       <img
         src="https://i.ibb.co/k9p1FdB/accredit-2.jpg"
         alt="accredit"
-        style="mix-blend-mode: multiply; height: 12rem; width: 13rem"
+        style="mix-blend-mode: multiply; height: 10rem; width: 13rem"
       />
       <img
         src="https://i.ibb.co/xCKBHw6/Eaquals-Accred-390x197.png"

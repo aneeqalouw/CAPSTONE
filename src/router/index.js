@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { useCookies } from 'vue3-cookies'
 import { computed } from 'vue'
+import Swal from 'sweetalert2'
 const {cookies} = useCookies()
 
 const routes = [
@@ -68,10 +69,10 @@ const routes = [
     beforeEnter(){
       if(!cookies.get('LegitUser')){
         router.push({name : 'login'})
-      } //else if(cookies.get('userRole')!= 'admin'){
-      //   alert('Only admins may view this page')
-      //   router.push({name: 'home'})
-      // }
+      }else if(cookies.get('userRole') !== 'admin'){
+       alert('Only admins may view this page')
+       router.push({name: 'home'})
+      }
     },
 
     
@@ -79,11 +80,12 @@ const routes = [
   {
     path: '/logout',
     name: 'logout',
-    component: ()=> import('../views/LoginView.vue'),
+    component: ()=> import('../views/HomeView.vue'),
     beforeEnter(){
-      router.push({name: 'login'})
       cookies.remove('LegitUser')
-      window.location.reload
+      cookies.remove('userID')
+      cookies.remove('userRole')
+      router.push({name: 'login'})
     }
   }
 ]
