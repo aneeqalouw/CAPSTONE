@@ -149,7 +149,7 @@ export default createStore({
           title: `Hi 
           ${result?.firstName}!`,
           text: `Welcome back`,
-          imageUrl: 'https://i.postimg.cc/66gvLsh8/cheer-cat.gif',
+          imageUrl: './assets/images/cheer-cat.gif',
           timer: 3000
         })
           router.push({name: 'home'})

@@ -55,7 +55,7 @@ ul{
   list-style-position: inside;
 }
 #aboutPage{
-  background: url("https://i.ibb.co/41BPm2w/tefl-globe.jpg") no-repeat;
+  background: url("../assets/images/tefl-globe.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: white;

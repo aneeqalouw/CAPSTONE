@@ -94,7 +94,7 @@ a {
   text-decoration: none;
 }
 #bookPage{
-  background: url("https://i.ibb.co/4PG0nyZ/Getty-Images-1361844238-1024x683.jpg") no-repeat;
+  background: url("../assets/images/tefl-class.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
